@@ -20,7 +20,7 @@ const profileName = document.querySelector('.jacques');
 const profileSkill = document.querySelector('.explorer');
 
 const inputName = document.querySelector('.popup__name');
-const inputSkill = document.querySelector('.popup__skillS'); 
+const inputSkill = document.querySelector('.popup__skill'); 
 
 function handleFormSubmit(event) {
   event.preventDefault();
