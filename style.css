@@ -186,6 +186,10 @@
   border-radius: 10px;
 }
 
+.popup_visible {
+  display: none;
+} 
+
 
 @media screen and (min-width: 1280px) {
   .popup__container {
