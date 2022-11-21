@@ -101,6 +101,9 @@
 }
 
 .jacques {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   margin: 0%;
   color: #FFFFFF;
   width: 201px;
@@ -132,6 +135,10 @@
   top: 5px;
 }
 
+.edit_button:hover {
+  opacity: 0.6px;
+}
+
 @media screen and (min-width: 1280px) {
   .edit_button {
     width: 24px;
@@ -142,9 +149,11 @@
 }
 
 .explorer {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   margin: 0;
   color: #FFFFFF;
-  height: 14px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -164,6 +173,9 @@
 .add_button {
   width: 282px;
   height: 50px;
+}
+.add_button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (min-width: 1280px) {
@@ -219,6 +231,10 @@
   right: 0;
 }
 
+.popup__close-icon:hover{
+  opacity: 0.6;
+}
+
 .popup__tittle {
   font-family: 'Inter';
   font-style: normal;
@@ -263,6 +279,10 @@
   line-height: 17px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.popup__button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 1280px) {
@@ -348,6 +368,14 @@
 .heart {
   Width: 20.76px;
   Height: 18.13px;
+}
+
+.header:hover {
+  opacity: 0.6;
+}
+
+.heart:active {
+  background-color: #000000;
 }
 
 .footer {
