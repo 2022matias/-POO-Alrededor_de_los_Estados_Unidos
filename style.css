@@ -136,7 +136,7 @@
 }
 
 .edit_button:hover {
-  opacity: 0.6px;
+  opacity: 0.6;
 }
 
 @media screen and (min-width: 1280px) {
@@ -185,10 +185,6 @@
 }
 
 .popup {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,7 +192,7 @@
 }
 
 .popup__container {
-  position: relative;
+  position: fixed;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -256,6 +252,8 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  border: 0;
+  border-bottom: 1px grey solid;
 }
 
 .popup__skill {
@@ -264,6 +262,8 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  border: 0;
+  border-bottom:1px grey solid;
 }
 
 .popup__button {
@@ -295,6 +295,9 @@
 }
 
 .fondo {
+  width: 100%;
+  height: 100%;
+  top: 0;
   position: fixed;
   background-color: #000000;
   opacity: 0.5;
@@ -370,7 +373,7 @@
   Height: 18.13px;
 }
 
-.header:hover {
+.heart:hover {
   opacity: 0.6;
 }
 
