@@ -1,4 +1,4 @@
-const openFormButton = document.querySelector('.edit_button');
+const openFormButton = document.querySelector('.profile__edit_button');
 
 const popup = document.querySelector('.popup');
 
@@ -22,8 +22,8 @@ popupCloseIcon.addEventListener('click', closeForm);
 
 
 
-const profileName = document.querySelector('.jacques');
-const profileSkill = document.querySelector('.explorer');
+const profileName = document.querySelector('.profile__jacques');
+const profileSkill = document.querySelector('.profile__explorer');
 
 const inputName = document.querySelector('.popup__name');
 const inputSkill = document.querySelector('.popup__skill'); 
