@@ -1,16 +1,11 @@
 # Proyecto 4: Alrededor de los Estados Unidos
 
-### Descripción general
+## Red Social creada con la finalidad de aplicar conceptos ya vistos anteriormente pero con la inclusion fundamental de los siguientes en Javascrip:
+*Manejo del Dom
+*Funciones 
+*Eventos
 
-* Figma
-* Imágenes
+### La idea es que a diferencia de las anteriores sea mas interactiva para el usuario.
 
-**Figma**
-
-* [Enlace al proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
-
-**Imágenes**
-
-A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
-
-¡Esperamos que te diviertas con JavaScript!
+### Aquí dejo el link para poder visualizar el proyecto en vivo.
+(https://2022matias.github.io/web_project_4_esp/)

@@ -4,7 +4,7 @@
   padding-top: 50px;
   padding-bottom: 36px;
   height: 14px;
-  font-family: 'Inter';
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -12,13 +12,20 @@
   color: #545454;
 }
 
-@media screen and (min-width: 1280px) {
+
+@media screen and (min-width: 768px) {
   .footer {
-    width: 880px;
+    width: 584px;
     padding-top: 67px;
     padding-bottom: 60px;
     height: 18px;
     font-size: 18px;
     line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    width: 880px;
   }
 }

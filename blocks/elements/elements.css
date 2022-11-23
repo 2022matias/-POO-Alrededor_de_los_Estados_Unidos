@@ -6,15 +6,21 @@
   gap: 20px;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .elements {
-    width: 880px;
-    height: 743px;
+    width: 584px;
     margin: 0 auto;
     padding-top: 46px;
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 20px;
     column-gap: 17px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .elements {
+    width: 880px;
+    height: 743px;
   }
 }
