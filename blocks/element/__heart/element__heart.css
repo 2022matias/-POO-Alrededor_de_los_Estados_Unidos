@@ -1,4 +1,6 @@
 .element__heart {
+  border: none;
+  background-image: url(../../../images/corazon-con-fondo.jpg);
   Width: 20.76px;
   Height: 18.13px;
 }
@@ -8,5 +10,6 @@
 }
 
 .element__heart:active {
+  opacity: 1;
   background-image: url(../../../images/black-heart.png);
 }
