@@ -136,7 +136,7 @@ document.querySelector(".element__heart").addEventListener("click", giveLike);
 /* eliminar 1 imagen*/
 const trash = document.querySelector(".element__trash");
 trash.addEventListener("click", function () {
-  const element = document.querySelectorAll(".element")
+  const element = document.querySelector(".element")
   element.forEach((item) => {
     item.remove();
   });
