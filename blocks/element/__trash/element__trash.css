@@ -1,0 +1,9 @@
+.element__trash{
+	background-image: url(../../../images/Trash.png);
+	border: none;
+	position: absolute;
+  right: 15px;
+  top: 18px;
+	Width: 18px;
+	Height: 19.3px;
+}

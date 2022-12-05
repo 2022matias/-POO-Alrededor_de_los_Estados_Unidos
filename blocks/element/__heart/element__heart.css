@@ -8,8 +8,3 @@
 .element__heart:hover {
   opacity: 0.6;
 }
-
-.element__heart:active {
-  opacity: 1;
-  background-image: url(../../../images/black-heart.png);
-}

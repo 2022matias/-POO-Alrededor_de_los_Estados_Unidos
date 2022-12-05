@@ -34,7 +34,7 @@ popupContainer.addEventListener('submit', handleFormSubmit);
 
 
 
-
+/* agregar links y nombres a las tarjetas */
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -63,12 +63,12 @@ const initialCards = [
 ];
 
 
-initialCards.array.forEach((link, name)=> {
+initialCards.forEach((element)=> {
+  const cardElements = document.querySelector(".elements");
   const cardTemplate = document.querySelector("#elements").content;
-  let cardElements = document.querySelector(".elements");
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
-  cardElement.querySelector(".element__image").src = link.value;
-  cardElement.querySelector("element__name").textContent = name.value;
+  cardElement.querySelector(".element__image").src = element.link;
+  cardElement.querySelector(".element__name").textContent = element.name;
   cardElements.append(cardElement);
 }); 
 
@@ -86,23 +86,19 @@ initialCards.array.forEach((link, name)=> {
 
 
 
-
-
-
-
-
-
-
-
+/*expandir formulario para agregar imagen*/
+function createCardForm() {
 const popupTemplate = document.querySelector(".popup").content;
 const popupCard = document.querySelector(".popup__card");
 const popupContain = document.querySelector('.popup').cloneNode(true);
+const cardElements = document.querySelector(".elements");
 
 popupContain.querySelector(".popup__tittle").textContent = "Nuevo lugar";
-popupContain.querySelector(".popup__name").textContent = "Título";
-popupContain.querySelector(".popup__skill").textContent = "Enlace a la imagen";
+popupContain.querySelector(".popup__name").setAttribute("placeholder", "Título");
+popupContain.querySelector(".popup__skill").setAttribute("placeholder", "Enlace a la imagen");
 
-popupCard.append(popupContain);
+cardElements.append(popupContain);
+}
 
 
 const openPopupContain = document.querySelector('.profile__add-button');
@@ -110,5 +106,64 @@ openPopupContain.addEventListener('click', toggleCard);
 popupCloseIcon.addEventListener('click', toggleCard); 
 
 function toggleCard(){
-	popupCard.classList.toggle('popup__visible');
+  const popupCard = document.querySelector(".popup__card");
+	popupCard.classList.toggle('.popup__visible');
+}
+
+
+
+
+
+
+
+/* boton me gusta */ 
+function giveLike() {
+  document.querySelector(".element__heart").className = ".element__heart_black";
+}
+
+document.querySelector(".element__heart").addEventListener("click", giveLike); 
+
+
+
+
+
+
+
+
+
+
+
+/* eliminar 1 imagen*/
+const trash = document.querySelector(".element__trash");
+trash.addEventListener("click", function () {
+  const element = document.querySelectorAll(".element")
+  element.forEach((item) => {
+    item.remove();
+  });
+});
+
+
+
+
+
+
+
+
+
+/* ampliar imagen */
+const openImage = document.querySelector('.element__image');
+const popupImage = document.querySelector('.enlarge-image');
+const bigImage = document.querySelector('image');
+const closeImage = popupContainer.querySelector('.close-image');
+
+openImage.addEventListener('click', expand);
+closeImage.addEventListener('click', expand); 
+
+initialCards.forEach((element)=> {
+  cardElement.querySelector(".element__image").src = element.link;
+  bigImage.src = cardElement;
+}); 
+
+function expand(){
+  popupImage.classList.toggle('popup__visible');
 }
