@@ -97,7 +97,7 @@ popupContain.querySelector(".popup__tittle").textContent = "Nuevo lugar";
 popupContain.querySelector(".popup__name").setAttribute("placeholder", "Título");
 popupContain.querySelector(".popup__skill").setAttribute("placeholder", "Enlace a la imagen");
 
-cardElements.append(popupContain);
+cardElements.append(popupCard);
 }
 
 
@@ -107,7 +107,7 @@ popupCloseIcon.addEventListener('click', toggleCard);
 
 function toggleCard(){
   const popupCard = document.querySelector(".popup__card");
-	popupCard.classList.toggle('.popup__visible');
+	popupCard.classList.toggle('.visivility');
 }
 
 
@@ -155,6 +155,7 @@ const openImage = document.querySelector('.element__image');
 const popupImage = document.querySelector('.enlarge-image');
 const bigImage = document.querySelector('image');
 const closeImage = popupContainer.querySelector('.close-image');
+const cardElement = document.querySelector(".element");
 
 openImage.addEventListener('click', expand);
 closeImage.addEventListener('click', expand); 
@@ -165,5 +166,5 @@ initialCards.forEach((element)=> {
 }); 
 
 function expand(){
-  popupImage.classList.toggle('popup__visible');
+  
 }
