@@ -17,6 +17,10 @@ const closeFormImage = document.querySelector('.new-card__close-icon');
 /*variables para ampliar Imagen*/
 const bigImage = document.querySelector('.image');
 
+/*variable para cerrar la imagen*/
+const closeImage = document.querySelector('.close-image');
+
+
 
 
 function toggleProfile(){
@@ -87,22 +91,34 @@ initialCards.forEach((element)=> {
   const cardElements = document.querySelector(".elements");
   const cardTemplate = document.querySelector("#elements").content;
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+  const bigImage = document.querySelector(".image");
+  const enlargeImage = document.querySelector(".enlarge-image");
+  const giveLike = cardElement.querySelector(".element__heart");
+
+
   cardElement.querySelector(".element__image").src = element.link;
   cardElement.querySelector(".element__name").textContent = element.name;
-  cardElements.append(cardElement);
-  
-  cardElement.querySelector(".element__image").addEventListener('click', function() {
-    bigImage.src = element.link;
-    bigImage.classList.toggle('no-vison');
-  })
-  
-  cardElement.querySelector('.element__trash').addEventListener('click', function(event) {
-    event.target.closest('.element').remove();
-  })
-  
-  function giveLike() {
-    document.querySelector(".element__heart").className = ".element__heart_black";
-  }
-  document.querySelector(".element__heart").addEventListener("click", giveLike); 
-});
 
+  cardElement
+    .querySelector(".element__image").addEventListener("click", function () { 
+      bigImage.src = element.link;
+      enlargeImage.classList.toggle("no-vision");
+    });
+
+    enlargeImage.querySelector(".close-image").addEventListener("click", function () { 
+      enlargeImage.classList.toggle("no-vision");
+    });
+ 
+
+  cardElement
+    .querySelector(".element__trash").addEventListener("click", function (event) {
+      event.target.closest(".element").remove();
+    });
+
+    cardElements.append(cardElement);
+
+  giveLike.addEventListener("click", (event) => {
+    event.target.classList.toggle("element__heart-black");
+  });
+
+});
