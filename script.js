@@ -15,6 +15,11 @@ const popupFormImageContainer = document.querySelector('.new-card__container');
 const closeFormImage = document.querySelector('.new-card__close-icon');
 
 
+
+
+
+
+
 function toggleProfile(){
 	inputName.value = profileName.textContent;
   inputSkill.value = profileSkill.textContent;
@@ -43,13 +48,54 @@ popupFormImageContainer.addEventListener('submit', handleFormSubmit);
 popupFormImage.addEventListener('submit', createCard);
 
 
-const cardPlace = document.querySelector('.new-card__place');
-const cardLink = document.querySelector('.new-card__link');
-function createCard(event) {
-  event.preventDefault();
-  const cardElements = document.querySelector(".elements");
+
+
+/*funcion para crear card*/
+function createCard() {
   const cardTemplate = document.querySelector("#elements").content;
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+  const bigImage = document.querySelector(".enlarge-image__image");
+  const enlargeImage = document.querySelector(".enlarge-image");
+  const giveLike = cardElement.querySelector(".element__heart");
+
+
+  cardElement.querySelector(".element__image").src = element.link;
+  cardElement.querySelector(".element__name").textContent = element.name;
+
+  cardElement.querySelector(".element__image").addEventListener("click", function () { 
+      bigImage.src = element.link;
+      enlargeImage.classList.remove("no-vision");
+    });
+
+    document.querySelector(".enlarge-image__close-image").addEventListener("click", function () { 
+      enlargeImage.classList.add("no-vision");
+    });
+ 
+
+  cardElement.querySelector(".element__trash").addEventListener("click", function (event) {
+      event.target.closest(".element").remove();
+    });
+
+    cardElements.append(cardElement);
+
+  giveLike.addEventListener("click", (event) => {
+    event.target.classList.toggle("element__heart-black");
+  });
+  return cardElement;
+};
+
+
+
+
+
+
+
+const cardPlace = document.querySelector('.new-card__place');
+const cardLink = document.querySelector('.new-card__link');
+
+/*funcion que crea 1 sola carta a traves del formulario */
+function oneCard(event) {
+  event.preventDefault();
   cardElement.querySelector(".element__image").src = cardLink.value;
   cardElement.querySelector(".element__name").textContent = cardPlace.value;
 	popupFormImage.classList.add('visibility');
@@ -89,37 +135,10 @@ const initialCards = [
 
 
 
-
+/*agrega las 6 cartas iniciales*/
 initialCards.forEach((element)=> {
-  const cardElements = document.querySelector(".elements");
-  const cardTemplate = document.querySelector("#elements").content;
-  const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
-  const bigImage = document.querySelector(".image");
-  const enlargeImage = document.querySelector(".enlarge-image");
-  const giveLike = cardElement.querySelector(".element__heart");
-
-
-  cardElement.querySelector(".element__image").src = element.link;
-  cardElement.querySelector(".element__name").textContent = element.name;
-
-  cardElement.querySelector(".element__image").addEventListener("click", function () { 
-      bigImage.src = element.link;
-      enlargeImage.classList.remove("no-vision");
-    });
-
-  document.querySelector(".close-image").addEventListener("click", function () { 
-      enlargeImage.classList.add("no-vision");
-    });
- 
-
-  cardElement.querySelector(".element__trash").addEventListener("click", function (event) {
-      event.target.closest(".element").remove();
-    });
-
-    cardElements.append(cardElement);
-
-  giveLike.addEventListener("click", (event) => {
-    event.target.classList.toggle("element__heart-black");
-  });
-
+  const newCadrs = createCard(element);
+  cardElements.append(newCadrs);
 });
+
+
