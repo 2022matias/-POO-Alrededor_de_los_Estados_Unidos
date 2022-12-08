@@ -1,4 +1,5 @@
 .element__trash{
+	background: transparent;
 	background-image: url(../../../images/Trash.png);
 	border: none;
 	position: absolute;

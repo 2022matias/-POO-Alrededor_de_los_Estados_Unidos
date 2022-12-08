@@ -14,14 +14,6 @@ const popupFormImage = document.querySelector('.new-card');
 const popupFormImageContainer = document.querySelector('.new-card__container');
 const closeFormImage = document.querySelector('.new-card__close-icon');
 
-/*variables para ampliar Imagen*/
-const bigImage = document.querySelector('.image');
-
-/*variable para cerrar la imagen*/
-const closeImage = document.querySelector('.close-image');
-
-
-
 
 function toggleProfile(){
 	inputName.value = profileName.textContent;
@@ -48,10 +40,21 @@ function handleFormSubmit(event) {
 
 popupContainer.addEventListener('submit', handleFormSubmit);
 popupFormImageContainer.addEventListener('submit', handleFormSubmit);
+popupFormImage.addEventListener('submit', createCard);
 
 
-
-
+const cardPlace = document.querySelector('.new-card__place');
+const cardLink = document.querySelector('.new-card__link');
+function createCard(event) {
+  event.preventDefault();
+  const cardElements = document.querySelector(".elements");
+  const cardTemplate = document.querySelector("#elements").content;
+  const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+  cardElement.querySelector(".element__image").src = cardLink;
+  cardElement.querySelector(".element__name").textContent = cardPlace;
+	popupFormImage.classList.add('visibility');
+  cardElements.prepend(cardElement);
+}
 
 
 
@@ -99,19 +102,17 @@ initialCards.forEach((element)=> {
   cardElement.querySelector(".element__image").src = element.link;
   cardElement.querySelector(".element__name").textContent = element.name;
 
-  cardElement
-    .querySelector(".element__image").addEventListener("click", function () { 
+  cardElement.querySelector(".element__image").addEventListener("click", function () { 
       bigImage.src = element.link;
-      enlargeImage.classList.toggle("no-vision");
+      enlargeImage.classList.remove("no-vision");
     });
 
-    enlargeImage.querySelector(".close-image").addEventListener("click", function () { 
-      enlargeImage.classList.toggle("no-vision");
+  document.querySelector(".close-image").addEventListener("click", function () { 
+      enlargeImage.classList.add("no-vision");
     });
  
 
-  cardElement
-    .querySelector(".element__trash").addEventListener("click", function (event) {
+  cardElement.querySelector(".element__trash").addEventListener("click", function (event) {
       event.target.closest(".element").remove();
     });
 
