@@ -50,8 +50,8 @@ function createCard(event) {
   const cardElements = document.querySelector(".elements");
   const cardTemplate = document.querySelector("#elements").content;
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
-  cardElement.querySelector(".element__image").src = cardLink;
-  cardElement.querySelector(".element__name").textContent = cardPlace;
+  cardElement.querySelector(".element__image").src = cardLink.value;
+  cardElement.querySelector(".element__name").textContent = cardPlace.value;
 	popupFormImage.classList.add('visibility');
   cardElements.prepend(cardElement);
 }
