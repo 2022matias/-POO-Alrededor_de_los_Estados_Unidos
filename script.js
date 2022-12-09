@@ -7,6 +7,8 @@ const profileName = document.querySelector('.profile__jacques');
 const profileSkill = document.querySelector('.profile__explorer');
 const inputName = document.querySelector('.popup__name');
 const inputSkill = document.querySelector('.popup__skill'); 
+const newCardPlace = document.querySelector('.new-card__place');
+const newCardLink = document.querySelector('.new-card__link');
 
 /*variables formulario de agregar imagenes*/
 const openFormImage = document.querySelector('.profile__add-button');
@@ -15,22 +17,37 @@ const popupFormImageContainer = document.querySelector('.new-card__container');
 const closeFormImage = document.querySelector('.new-card__close-icon');
 
 
+const cardPlace = document.querySelector('.new-card__place');
+const cardLink = document.querySelector('.new-card__link');
+
+const bigImage = document.querySelector(".enlarge-image__image");
+const enlargeImage = document.querySelector(".enlarge-image");
+const cardElements = document.querySelector(".elements");
 
 
 
 
-
-
-
-
-function toggleCardForm(){
-  popupFormImage.classList.toggle('visibility');
-}
 
 openFormButton.addEventListener('click', toggleProfile);
 popupCloseIcon.addEventListener('click', toggleProfile);
 openFormImage.addEventListener('click', toggleCardForm);
 closeFormImage.addEventListener('click', toggleCardForm);
+popupContainer.addEventListener('submit', handleFormSubmit);
+popupFormImageContainer.addEventListener('submit', formAddCard);
+popupFormImage.addEventListener('submit', createCard);
+
+
+
+
+function toggleProfile(){
+	inputName.value = profileName.textContent;
+  inputSkill.value = profileSkill.textContent;
+  popupProfile.classList.toggle('popup__visible');
+}
+
+function toggleCardForm(){
+  popupFormImage.classList.toggle('visibility');
+}
 
 
 function handleFormSubmit(event) {
@@ -42,17 +59,12 @@ function handleFormSubmit(event) {
 
 function formAddCard(event) {
   event.preventDefault();
-  
-	popupProfile.classList.add('.visibility');
+  popupProfile.classList.add('.visibility');
+
 }
 
-popupContainer.addEventListener('submit', handleFormSubmit);
-popupFormImageContainer.addEventListener('submit', formAddCard);
-popupFormImage.addEventListener('submit', createCard);
 
-const bigImage = document.querySelector(".enlarge-image__image");
-const enlargeImage = document.querySelector(".enlarge-image");
-const cardElements = document.querySelector(".elements");
+
 
 /*funcion para crear card*/
 function createCard(element) {
@@ -89,16 +101,14 @@ function createCard(element) {
 
 
 
-const cardPlace = document.querySelector('.new-card__place');
-const cardLink = document.querySelector('.new-card__link');
 
 /*funcion que crea 1 sola carta a traves del formulario */
-function oneCard(event) {
-  event.preventDefault();
+function oneCard(element) {
+  const oneCard = createCard(element);
+  const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
   cardElement.querySelector(".element__image").src = cardLink.value;
   cardElement.querySelector(".element__name").textContent = cardPlace.value;
-	popupFormImage.classList.add('visibility');
-  cardElements.prepend(newCadrs);
+  cardElements.prepend(oneCard);
 }
 
 
@@ -140,9 +150,3 @@ initialCards.forEach((element)=> {
   cardElements.append(newCadrs);
 });
 
-
-function toggleProfile(){
-	inputName.value = profileName.textContent;
-  inputSkill.value = profileSkill.textContent;
-  popupProfile.classList.toggle('popup__visible');
-}
