@@ -36,6 +36,7 @@
 
 @import url(../blocks/enlarge-image/enlarge-image.css);
 @import url(../blocks/enlarge-image/__container/enlarge-image__container.css);
+@import url(../blocks/enlarge-image/__title/enlarge-image__title.css);
 @import url(../blocks/enlarge-image/__image/enlarge-image__image.css);
 @import url(../blocks/enlarge-image/__close-image/enlarge-image__close-image.css);
 @import url(../blocks/no-vision/no-vision.css);
@@ -51,3 +52,6 @@
 @import url(../blocks/new-card/__place/new-card__place.css);
 @import url(../blocks/new-card/__tittle/new-card__tittle.css);
 @import url(../blocks/visibility/visibility.css);
+
+@import url(../blocks/opacity/opacity.css);
+
