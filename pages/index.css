@@ -21,7 +21,7 @@
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__skill/popup__skill.css);
 @import url(../blocks/popup/__tittle/popup__tittle.css);
-@import url(../blocks/popup/__visible/popup__visible.css);
+@import url(../blocks/popup/-visible/popup-visible.css);
 @import url(../blocks/fondo/fondo.css);
 
 @import url(../blocks/elements/elements.css);

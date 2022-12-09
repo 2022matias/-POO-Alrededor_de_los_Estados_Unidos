@@ -36,7 +36,7 @@ popupFormImageContainer.addEventListener('submit', function(evt){
 function toggleProfile(){
   inputName.value = profileName.textContent;
   inputSkill.value = profileSkill.textContent;
-  popupProfile.classList.toggle('popup__visible');
+  popupProfile.classList.toggle('popup-visible');
   popupProfile.classList.add("opacity");
 }
 function toggleCardForm(){
@@ -47,7 +47,7 @@ function handleFormSubmit(event) {
   event.preventDefault(event);
   profileName.textContent = inputName.value;
   profileSkill.textContent = inputSkill.value;
-  popupProfile.classList.add('popup__visible');
+  popupProfile.classList.add('popup-visible');
 }
 function formAddCard() {
   popupProfile.classList.add('visibility');
