@@ -20,11 +20,8 @@ const closeFormImage = document.querySelector('.new-card__close-icon');
 
 
 
-function toggleProfile(){
-	inputName.value = profileName.textContent;
-  inputSkill.value = profileSkill.textContent;
-  popupProfile.classList.toggle('popup__visible');
-}
+
+
 
 function toggleCardForm(){
   popupFormImage.classList.toggle('visibility');
@@ -43,19 +40,24 @@ function handleFormSubmit(event) {
 	popupProfile.classList.add('popup__visible');
 }
 
+function formAddCard(event) {
+  event.preventDefault();
+  
+	popupProfile.classList.add('.visibility');
+}
+
 popupContainer.addEventListener('submit', handleFormSubmit);
-popupFormImageContainer.addEventListener('submit', handleFormSubmit);
+popupFormImageContainer.addEventListener('submit', formAddCard);
 popupFormImage.addEventListener('submit', createCard);
 
-
-
+const bigImage = document.querySelector(".enlarge-image__image");
+const enlargeImage = document.querySelector(".enlarge-image");
+const cardElements = document.querySelector(".elements");
 
 /*funcion para crear card*/
-function createCard() {
+function createCard(element) {
   const cardTemplate = document.querySelector("#elements").content;
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
-  const bigImage = document.querySelector(".enlarge-image__image");
-  const enlargeImage = document.querySelector(".enlarge-image");
   const giveLike = cardElement.querySelector(".element__heart");
 
 
@@ -76,15 +78,12 @@ function createCard() {
       event.target.closest(".element").remove();
     });
 
-    cardElements.append(cardElement);
 
   giveLike.addEventListener("click", (event) => {
     event.target.classList.toggle("element__heart-black");
   });
   return cardElement;
 };
-
-
 
 
 
@@ -99,7 +98,7 @@ function oneCard(event) {
   cardElement.querySelector(".element__image").src = cardLink.value;
   cardElement.querySelector(".element__name").textContent = cardPlace.value;
 	popupFormImage.classList.add('visibility');
-  cardElements.prepend(cardElement);
+  cardElements.prepend(newCadrs);
 }
 
 
@@ -142,3 +141,8 @@ initialCards.forEach((element)=> {
 });
 
 
+function toggleProfile(){
+	inputName.value = profileName.textContent;
+  inputSkill.value = profileSkill.textContent;
+  popupProfile.classList.toggle('popup__visible');
+}
