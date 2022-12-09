@@ -1,5 +1,5 @@
 .profile__add-button {
-  aspect-ratio: 6/1;
+  height: 50px;
   width: 282px;
 }
 .profile__add-button:hover {
@@ -9,7 +9,6 @@
 
 @media screen and (min-width: 768px) {
   .profile__add-button {
-    aspect-ratio: 3/1;
     width: 130px;
   }
 }
