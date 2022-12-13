@@ -30,9 +30,9 @@ popupContainer.addEventListener('submit', handleFormSubmit);
 
 popupFormImageContainer.addEventListener('submit', function(evt){
   evt.preventDefault();
-  formAddCard();
-  toggleCardForm();
+  AddCardForm();
 });
+
 function toggleProfile(){
   inputName.value = profileName.textContent;
   inputSkill.value = profileSkill.textContent;
@@ -49,8 +49,8 @@ function handleFormSubmit(event) {
   profileSkill.textContent = inputSkill.value;
   popupProfile.classList.add('popup-visible');
 }
-function formAddCard() {
-  popupProfile.classList.add('visibility');
+function AddCardForm() {
+  popupFormImage.classList.add('visibility');
   createCard(newCardPlace.value,newCardLink.value);
 }
 /*funcion para crear card*/
