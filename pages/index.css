@@ -55,14 +55,21 @@
 
 @import url(../blocks/opacity/opacity.css);
 
+.name-input-error{
+	position: absolute;
+  top: 150px;
+}
 
+.skill-input-error{
+	position: absolute;
+  top: 216px;
+}
 
 .form__input_type_error {
   border-bottom-color: red;
 }
 
 .form__input-error {
-  display: block;
   font-size: 12px;
   color: red;
 	opacity: 0;
@@ -70,4 +77,14 @@
 
 .form__input-error_active {
   opacity: 1;
+}
+
+.popup__button_disabled {
+  color: #B8B8B8;
+  background: #EDEDED;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
