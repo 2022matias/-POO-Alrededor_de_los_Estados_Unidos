@@ -116,10 +116,3 @@ const enableValidation = () => {
 enableValidation(); 
 
 
-formElement.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
-
-formInput.addEventListener("input", function (evt) {
-  isValid();
-});
