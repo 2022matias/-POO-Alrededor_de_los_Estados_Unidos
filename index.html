@@ -27,25 +27,27 @@
     </section>
 
     <section class="popup popup-visible">
-      <form name="form1" class="popup__container form" novalidate>
+      <form class="popup__container popup__form" novalidate>
         <img src="./images/close-icon.png" class="popup__close-icon" alt="boton para cerrar el formulario">
         <h3 class="popup__tittle">Editar perfil</h3>
-          <input id="name-input" type="text" class="popup__name form__input" placeholder="Inserte su Nombre" minlength="2" maxlength="40" required>
-          <span class="name-input-error form__input-error"></span>
-          <input id="skill-input" type="text" class="popup__skill form__input" placeholder="Inserte su Skill" minlength="2" maxlength="200" required>
-          <span class="skill-input-error form__input-error"></span>
+          <input id="name-input" type="text" class="popup__name popup__input" placeholder="Inserte su Nombre" minlength="2" maxlength="40" required>
+          <span class="name-input-error"></span>
+          <input id="skill-input" type="text" class="popup__skill popup__input" placeholder="Inserte su Skill" minlength="2" maxlength="200" required>
+          <span class="skill-input-error"></span>
         <button class="popup__button">Guardar</button>
       </form>
       <div class="fondo"></div>
     </section>
 
     <section class="new-card visibility">
-      <form class="new-card__container">
+      <form class="new-card__container popup__form">
         <img src="./images/close-icon.png" class="new-card__close-icon" alt="boton para cerrar el formulario">
         <h3 class="new-card__tittle">Nuevo lugar</h3>
-        <input type="text" class="new-card__place" placeholder="Título">
-        <input type="text" class="new-card__link" placeholder="Enlace a la imagen">
-        <button class="new-card__button">Crear</button>
+        <input id="place-input" type="text" class="new-card__place popup__input" placeholder="Título" minlength="2" maxlength="30" required>
+        <span class="place-input-error"></span>
+        <input id="url-input" type="url" class="new-card__link popup__input" placeholder="Enlace a la imagen">
+        <span class="url-input-error"></span>
+        <button class="popup__button">Crear</button>
       </form>
       <div class="fondo"></div>
     </section>
