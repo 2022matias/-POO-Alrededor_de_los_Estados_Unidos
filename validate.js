@@ -3,16 +3,16 @@ const formInput = formElement.querySelector(".popup__input");
 
 const showInputError = (formElement, inputElement, errorMessage) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+	inputElement.classList.add("popup__input_type_error");
 	errorElement.classList.add("popup__error_visible");
 	errorElement.textContent = errorMessage;
-	errorElement.classList.add("popup__input_type_error");
 };
 
 
 const hideInputError = (formElement, inputElement) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+	inputElement.classList.remove("popup__input_type_error");
 	errorElement.classList.remove("popup__error_visible");
-	errorElement.classList.remove("popup__input_type_error");
 	errorElement.textContent = "";
 };
 
@@ -61,3 +61,18 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.classList.remove("popup__button_disabled");
   }
 }; 
+
+
+
+
+function closePopupEsc(evt) {
+  if (evt.key === "Escape") {
+    formElement.addEventListener('keydown', toggleProfile);
+  };
+};
+
+document.addEventListener("click", function () {
+  if (document !== formElement && popupProfile.classList.add('popup-visible')) {
+		popupProfile.classList.toggle('popup-visible');
+	};
+});
