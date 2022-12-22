@@ -60,19 +60,4 @@ const toggleButtonState = (inputList, buttonElement) => {
   } else {
     buttonElement.classList.remove("popup__button_disabled");
   }
-}; 
-
-
-
-
-function closePopupEsc(evt) {
-  if (evt.key === "Escape") {
-    formElement.addEventListener('keydown', toggleProfile);
-  };
 };
-
-document.addEventListener("click", function () {
-  if (document !== formElement && popupProfile.classList.add('popup-visible')) {
-		popupProfile.classList.toggle('popup-visible');
-	};
-});

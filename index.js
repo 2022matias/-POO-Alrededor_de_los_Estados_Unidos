@@ -38,10 +38,30 @@ function toggleProfile(){
   inputSkill.value = profileSkill.textContent;
   popupProfile.classList.toggle('popup-visible');
   popupProfile.classList.add("opacity");
-}
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      popupProfile.classList.add("popup-visible");
+      popupProfile.classList.add("opacity");
+    };
+  });
+  document.addEventListener("click", () => {
+    if (document !== popupProfile) {
+      popupProfile.classList.add("popup-visible");
+      popupProfile.classList.add("opacity");
+    };
+  });
+};
+
+
 function toggleCardForm(){
   popupFormImage.classList.toggle('visibility');
   popupFormImage.classList.add("opacity");
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      popupFormImage.classList.add("visibility");
+      popupFormImage.classList.add("opacity");
+    }
+  })
 }
 function handleFormSubmit(event) {
   event.preventDefault(event);
@@ -65,6 +85,12 @@ function createCard(titleValue,linkValue) {
       enlargeTitle.textContent = titleValue;
       bigImage.src = linkValue;
       enlargeImage.classList.remove("no-vision");
+      document.addEventListener("keydown", (evt) => {
+        if (evt.key === "Escape") {
+          enlargeImage.classList.add("no-vision");
+          enlargeImage.classList.add("opacity");
+        }
+      })
     });
     document.querySelector(".enlarge-image__close-image").addEventListener("click", function () {
       enlargeImage.classList.add("no-vision");
