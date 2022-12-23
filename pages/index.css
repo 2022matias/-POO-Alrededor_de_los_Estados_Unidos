@@ -17,9 +17,14 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__button/_disabled/popup__button-disabled.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
 @import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/popup/__name/-input-error/popup__name-input-error.css);
 @import url(../blocks/popup/__skill/popup__skill.css);
+@import url(../blocks/popup/__skill/-input-error.css/popup__name-skill-error.css);
+@import url(../blocks/popup/__input_type_error/popup__input_type_error.css);
+@import url(../blocks/popup/__error_visible/popup__error_visible.css);
 @import url(../blocks/popup/__tittle/popup__tittle.css);
 @import url(../blocks/popup/-visible/popup-visible.css);
 @import url(../blocks/fondo/fondo.css);
@@ -49,97 +54,10 @@
 @import url(../blocks/new-card/__button/new-card__button.css);
 @import url(../blocks/new-card/__close-icon/new-card__close-icon.css);
 @import url(../blocks/new-card/__link/new-card__link.css);
+@import url(../blocks/new-card/__url-input-error/new-card__url-input-error.css);
 @import url(../blocks/new-card/__place/new-card__place.css);
+@import url(../blocks/new-card/__place/-input-error.css/new-card__place-input-error.css);
 @import url(../blocks/new-card/__tittle/new-card__tittle.css);
 @import url(../blocks/visibility/visibility.css);
 
 @import url(../blocks/opacity/opacity.css);
-
-.name-input-error {
-	position: absolute;
-  top: 149px;
-}
-
-@media screen and (min-width: 768px) {
-  .name-input-error {
-    top: 150px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .name-input-error {
-    top: 163px;
-  }
-}
-
-.skill-input-error{
-	position: absolute;
-  top: 210px;
-}
-
-@media screen and (min-width: 768px) {
-  .skill-input-error {
-    top: 216px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .skill-input-error {
-    top: 219px;
-  }
-}
-
-.place-input-error {
-	position: absolute;
-  top: 149px;
-}
-
-@media screen and (min-width: 768px) {
-  .place-input-error {
-    top: 150px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .place-input-error {
-    top: 163px;
-  }
-}
-
-
-.url-input-error{
-	position: absolute;
-  top: 210px;
-}
-
-@media screen and (min-width: 768px) {
-  .url-input-error {
-    top: 216px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .url-input-error {
-    top: 219px;
-  }
-}
-
-
-.popup__input_type_error {
-  border-bottom: solid 1px red;
-}
-
-.popup__error_visible {
-	font-size: 12px;
-  color: red;
-}
-
-.popup__button_disabled {
-  color: #B8B8B8;
-  background: #EDEDED;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
