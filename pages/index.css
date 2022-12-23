@@ -55,14 +55,73 @@
 
 @import url(../blocks/opacity/opacity.css);
 
-.name-input-error{
+.name-input-error {
 	position: absolute;
-  top: 150px;
+  top: 149px;
+}
+
+@media screen and (min-width: 768px) {
+  .name-input-error {
+    top: 150px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .name-input-error {
+    top: 163px;
+  }
 }
 
 .skill-input-error{
 	position: absolute;
-  top: 216px;
+  top: 210px;
+}
+
+@media screen and (min-width: 768px) {
+  .skill-input-error {
+    top: 216px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .skill-input-error {
+    top: 219px;
+  }
+}
+
+.place-input-error {
+	position: absolute;
+  top: 149px;
+}
+
+@media screen and (min-width: 768px) {
+  .place-input-error {
+    top: 150px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .place-input-error {
+    top: 163px;
+  }
+}
+
+
+.url-input-error{
+	position: absolute;
+  top: 210px;
+}
+
+@media screen and (min-width: 768px) {
+  .url-input-error {
+    top: 216px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .url-input-error {
+    top: 219px;
+  }
 }
 
 

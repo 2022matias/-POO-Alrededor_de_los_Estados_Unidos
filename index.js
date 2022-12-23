@@ -44,8 +44,8 @@ function toggleProfile(){
       popupProfile.classList.add("opacity");
     };
   });
-  document.addEventListener("click", () => {
-    if (document !== popupProfile) {
+  document.addEventListener("click", (evt) => {
+    if (evt.target.className === "fondo") {
       popupProfile.classList.add("popup-visible");
       popupProfile.classList.add("opacity");
     };
@@ -60,8 +60,14 @@ function toggleCardForm(){
     if (evt.key === "Escape") {
       popupFormImage.classList.add("visibility");
       popupFormImage.classList.add("opacity");
-    }
-  })
+    };
+  });
+  document.addEventListener("click", (evt) => {
+    if (evt.target.className === "fondo") {
+      popupFormImage.classList.add("visibility");
+      popupFormImage.classList.add("opacity");
+    };
+  });
 }
 function handleFormSubmit(event) {
   event.preventDefault(event);
@@ -89,8 +95,14 @@ function createCard(titleValue,linkValue) {
         if (evt.key === "Escape") {
           enlargeImage.classList.add("no-vision");
           enlargeImage.classList.add("opacity");
-        }
-      })
+        };
+      });
+      document.addEventListener("click", (evt) => {
+        if (evt.target.className === "fondo") {
+          enlargeImage.classList.add("no-vision");
+          enlargeImage.classList.add("opacity");
+        };
+      });
     });
     document.querySelector(".enlarge-image__close-image").addEventListener("click", function () {
       enlargeImage.classList.add("no-vision");
