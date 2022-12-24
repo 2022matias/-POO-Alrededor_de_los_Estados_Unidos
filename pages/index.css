@@ -19,7 +19,7 @@
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__button/_disabled/popup__button-disabled.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
-@import url(../blocks/popup/__close-icon/_card/popup__close-icon_card.css);
+@import url(../blocks/popup/__close-icon/-card/popup__close-icon-card.css);
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__name/-input-error/popup__name-input-error.css);
 @import url(../blocks/popup/__skill/popup__skill.css);

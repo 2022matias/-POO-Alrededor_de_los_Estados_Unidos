@@ -14,7 +14,7 @@ const newCardLink = document.querySelector('.popup__url');
 const openFormImage = document.querySelector('.profile__add-button');
 const popupFormImage = document.querySelector('.popup_card');
 const popupFormImageContainer = document.querySelector('.popup__container_card');
-const closeFormImage = document.querySelector('.popup__close-icon_card');
+const closeFormImage = document.querySelector('.popup__close-icon-card');
 
 
 const bigImage = document.querySelector(".enlarge-image__image");
