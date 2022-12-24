@@ -7,14 +7,14 @@ const profileName = document.querySelector('.profile__jacques');
 const profileSkill = document.querySelector('.profile__explorer');
 const inputName = document.querySelector('.popup__name');
 const inputSkill = document.querySelector('.popup__skill');
-const newCardPlace = document.querySelector('.new-card__place');
-const newCardLink = document.querySelector('.new-card__link');
+const newCardPlace = document.querySelector('.popup__place');
+const newCardLink = document.querySelector('.popup__url');
 
 /*variables formulario de agregar imagenes*/
 const openFormImage = document.querySelector('.profile__add-button');
-const popupFormImage = document.querySelector('.new-card');
-const popupFormImageContainer = document.querySelector('.new-card__container');
-const closeFormImage = document.querySelector('.new-card__close-icon');
+const popupFormImage = document.querySelector('.popup_card');
+const popupFormImageContainer = document.querySelector('.popup__container_card');
+const closeFormImage = document.querySelector('.popup__close-icon_card');
 
 
 const bigImage = document.querySelector(".enlarge-image__image");

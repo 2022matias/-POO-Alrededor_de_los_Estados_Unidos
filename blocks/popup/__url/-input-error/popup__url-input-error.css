@@ -1,16 +1,16 @@
-.new-card__url-input-error{
+.popup__url-input-error{
 	position: absolute;
   top: 210px;
 }
 
 @media screen and (min-width: 768px) {
-  .new-card__url-input-error {
+  .popup__url-input-error {
     top: 216px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .new-card__url-input-error {
+  .popup__url-input-error {
     top: 219px;
   }
 }

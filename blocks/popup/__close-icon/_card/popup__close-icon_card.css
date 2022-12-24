@@ -1,4 +1,4 @@
-.new-card__close-icon{
+.popup__close-icon_card{
   width: 26px;
   height: 26px;
   position: absolute;
@@ -6,6 +6,6 @@
   right: 0;
 }
 
-.new-card__close-icon:hover{
+.popup__close-icon_card:hover{
   opacity: 0.6;
 }

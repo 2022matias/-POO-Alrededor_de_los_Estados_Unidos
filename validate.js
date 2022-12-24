@@ -1,5 +1,4 @@
-const formElement = document.querySelector(".popup__form");
-const formInput = formElement.querySelector(".popup__input");
+const formElement = document.querySelector(".popup__container");
 
 const showInputError = (formElement, inputElement, errorMessage) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -37,7 +36,7 @@ const setEventListeners = (formElement) => {
 }; 
 
 const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".popup__form"));
+  const formList = Array.from(document.querySelectorAll(".popup__container"));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
