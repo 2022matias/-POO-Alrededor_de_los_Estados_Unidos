@@ -8,6 +8,13 @@
 // }; 
 
 
+class FormValidator {
+  constructor(selectors, elements) {
+    this._selectors = selectors;
+    this._elements = elements;
+};
+
+};
 // const hideInputError = (formElement, inputElement) => {
 // 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 // 	inputElement.classList.remove("popup__input_type_error");
