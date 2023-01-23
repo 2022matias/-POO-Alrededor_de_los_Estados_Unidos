@@ -17,9 +17,7 @@ const popupFormImageContainer = document.querySelector('.popup__container_card')
 const closeFormImage = document.querySelector('.popup__close-icon-card');
 
 
-// const bigImage = document.querySelector(".enlarge-image__image");
-// const enlargeTitle = document.querySelector(".enlarge-image__title")
-// const enlargeImage = document.querySelector(".enlarge-image");
+ 
 //const cardElements = document.querySelector(".elements");
 // openFormButton.addEventListener('click', toggleProfile);
 // popupCloseIcon.addEventListener('click', toggleProfile);
@@ -147,27 +145,78 @@ const initialCards = [
 // initialCards.forEach((element)=> {
 //    createCard(element.name,element.link);
 // });
+const bigImage = document.querySelector(".enlarge-image__image");
+const enlargeTitle = document.querySelector(".enlarge-image__title")
+const enlargeImage = document.querySelector(".enlarge-image");
+const cardContainer = document.querySelector(".elements");
 
 
 class Card {
   constructor(data, cardSelector) {
-      this._name = data.name;
-      this._link = data.link;
-      this._cardSelector = cardSelector;
-  };
+    this._name = data.name;
+    this._link = data.link;
+    this._cardSelector = cardSelector;
+};
 
 createCard() {
-  const cardElement = document.querySelector(this._cardSelector).content.cloneNode(true);
-  this._element = cardElement;
-  this._element.querySelector(".element__image").src = this._link;
-  this._element.querySelector(".element__name").textContent = this._name;
-  return this._element;
+const cardElement = document.querySelector(this._cardSelector).content.cloneNode(true);
+this._element = cardElement;
+this._element.querySelector(".element__image").src = this._link;
+this._element.querySelector(".element__name").textContent = this._name;
+this._setEventListeners();
+return this._element;
 };
+
+
+
+_setEventListeners() {
+  this._element.querySelector(".element__heart").addEventListener("click", () => {
+    this._giveLike();
+  });
+  this._element.querySelector(".element__image").addEventListener("click", () => {
+    this._zoomIn();
+  });
+  this._element.querySelector(".element__trash").addEventListener("click", () => {
+     this._deleteCard();
+  });
+}
+  
+
+_giveLike(event) {
+ this._element.querySelector(".element__heart").event.target.classList.toggle("element__heart-black");
+} 
+
+_deleteCard(event) {
+ this._element.querySelector(".element__trash").event.target.closest(".element").remove();
+}
+
+_zoomIn() {
+ enlargeImage.classList.add("opacity");
+      enlargeTitle.textContent = this._name;
+      bigImage.src = this._link;
+      enlargeImage.classList.remove("no-vision");
+      document.addEventListener("keydown", (evt) => {
+        if (evt.key === "Escape") {
+          enlargeImage.classList.add("no-vision");
+          enlargeImage.classList.add("opacity");
+        };
+      });
+      document.addEventListener("click", (evt) => {
+        if (evt.target.className === "fondo") {
+          enlargeImage.classList.add("no-vision");
+          enlargeImage.classList.add("opacity");
+        };
+      });
+      document.querySelector(".enlarge-image__close-image").addEventListener("click", function () {
+      enlargeImage.classList.add("no-vision");
+    });
+    };
 }
 
 
 initialCards.forEach((item) => {
-  const card = new Card(item, ".elements");
+  const card = new Card(item, "#elements");
   const cardElement = card.createCard();
-  document.querySelector(".element").prepend(cardElement);
+  cardContainer.append(cardElement);
 }); 
+
