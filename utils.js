@@ -18,17 +18,23 @@ const closeFormImage = document.querySelector('.popup__close-icon-card');
 
 
 //const cardElements = document.querySelector(".elements");
-openFormButton.addEventListener('click', toggleProfile);
-popupCloseIcon.addEventListener('click', toggleProfile);
-openFormImage.addEventListener('click', toggleCardForm);
-closeFormImage.addEventListener('click', toggleCardForm);
-popupContainer.addEventListener('submit', handleFormSubmit);
+
+newFunction();
 
 
 popupFormImageContainer.addEventListener('submit', function(evt){
   evt.preventDefault();
   AddCardForm();
 });
+
+// export function modalFunctions() { 
+// 		openFormButton.addEventListener('click', toggleProfile);
+// 		popupCloseIcon.addEventListener('click', toggleProfile);
+// 		openFormImage.addEventListener('click', toggleCardForm);
+// 		closeFormImage.addEventListener('click', toggleCardForm);
+// 		popupContainer.addEventListener('submit', handleFormSubmit);
+// 	};
+
 
 export function toggleProfile(){
   inputName.value = profileName.textContent;
