@@ -1,3 +1,4 @@
+import { Card } from "./Card.js"
 export const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -29,7 +30,7 @@ export const bigImage = document.querySelector(".enlarge-image__image");
 export const enlargeTitle = document.querySelector(".enlarge-image__title");
 export const enlargeImage = document.querySelector(".enlarge-image");
 
-// /*variables formulario del perfil*/
+
 const openFormButton = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup");
 const popupContainer = document.querySelector(".popup__container");
@@ -40,16 +41,15 @@ const inputName = document.querySelector(".popup__name");
 const inputSkill = document.querySelector(".popup__skill");
 const newCardPlace = document.querySelector(".popup__place");
 const newCardLink = document.querySelector(".popup__url");
+const cardContainer = document.querySelector(".elements");
 
-// /*variables formulario de agregar imagenes*/
+
 const openFormImage = document.querySelector(".profile__add-button");
 const popupFormImage = document.querySelector(".popup_card");
-const popupFormImageContainer = document.querySelector(
-  ".popup__container_card"
-);
+const popupFormImageContainer = document.querySelector(".popup__container_card");
 const closeFormImage = document.querySelector(".popup__close-icon-card");
 
-//const cardElements = document.querySelector(".elements");
+
 
 export const abrirModal = popupFormImageContainer.addEventListener(
   "submit",
@@ -108,7 +108,13 @@ function handleFormSubmit(event) {
   profileSkill.textContent = inputSkill.value;
   popupProfile.classList.add("popup-visible");
 }
+
 function AddCardForm() {
+  const name = newCardPlace.value;
+  const link = newCardLink.value;
+  const data = { name, link };
+  const card = new Card(data, "#elements");
+  const cardElement = card._createCard();
+  cardContainer.prepend(cardElement);
   popupFormImage.classList.add("visibility");
-  createCard(newCardPlace.value, newCardLink.value);
 }
