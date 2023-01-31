@@ -51,11 +51,11 @@ const closeFormImage = document.querySelector(".popup__close-icon-card");
 
 
 
-export const abrirModal = popupFormImageContainer.addEventListener(
+export const submitForm = popupFormImageContainer.addEventListener(
   "submit",
   function (evt) {
     evt.preventDefault();
-    AddCardForm();
+    addCardForm();
   }
 );
 
@@ -109,7 +109,7 @@ function handleFormSubmit(event) {
   popupProfile.classList.add("popup-visible");
 }
 
-function AddCardForm() {
+function addCardForm() {
   const name = newCardPlace.value;
   const link = newCardLink.value;
   const data = { name, link };

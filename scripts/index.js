@@ -1,6 +1,6 @@
 import { Card } from "./Card.js";
-import { initialCards, modalFunctions, abrirModal } from "./utils.js";
-import { FormValidator } from "./validate.js";
+import { initialCards, modalFunctions, submitForm } from "./utils.js";
+import { FormValidator } from "./FormValidator.js";
 
 const cardContainer = document.querySelector(".elements");
 
@@ -11,7 +11,7 @@ initialCards.forEach((item) => {
 });
 
 modalFunctions();
-abrirModal;
+submitForm;
 
 const validar = new FormValidator({});
 validar.enableValidation();
