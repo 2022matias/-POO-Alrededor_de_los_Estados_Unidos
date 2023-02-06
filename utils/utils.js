@@ -1,55 +1,6 @@
-import { Card } from "./Card.js"
-export const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
-
-export const bigImage = document.querySelector(".enlarge-image__image");
-export const enlargeTitle = document.querySelector(".enlarge-image__title");
-export const enlargeImage = document.querySelector(".enlarge-image");
-
-
-const openFormButton = document.querySelector(".profile__edit-button");
-const popupProfile = document.querySelector(".popup");
-const popupContainer = document.querySelector(".popup__container");
-const popupCloseIcon = popupContainer.querySelector(".popup__close-icon");
-const profileName = document.querySelector(".profile__jacques");
-const profileSkill = document.querySelector(".profile__explorer");
-const inputName = document.querySelector(".popup__name");
-const inputSkill = document.querySelector(".popup__skill");
-const newCardPlace = document.querySelector(".popup__place");
-const newCardLink = document.querySelector(".popup__url");
-const cardContainer = document.querySelector(".elements");
-
-
-const openFormImage = document.querySelector(".profile__add-button");
-const popupFormImage = document.querySelector(".popup_card");
-const popupFormImageContainer = document.querySelector(".popup__container_card");
-const closeFormImage = document.querySelector(".popup__close-icon-card");
-
-
+import { Card } from "../components/Card.js"
+import { popupFormImageContainer, openFormButton, popupCloseIcon, openFormImage,closeFormImage, popupContainer
+  , inputName, profileName, inputSkill, profileSkill, popupProfile, popupFormImage, cardContainer, newCardPlace, newCardLink } from "./constants.js";
 
 export const submitForm = popupFormImageContainer.addEventListener(
   "submit",

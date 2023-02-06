@@ -1,0 +1,19 @@
+{
+  "name": "web_project_4_esp",
+  "version": "1.0.0",
+  "description": "(\u0016\u0016\u0016\u0016\u001b[A\u001b[BPlataforma educativa)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2022matias/web_project_4_esp.git"
+  },
+  "author": " (Matias Agustin Campos)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2022matias/web_project_4_esp/issues"
+  },
+  "homepage": "https://github.com/2022matias/web_project_4_esp#readme"
+}

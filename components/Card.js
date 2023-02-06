@@ -1,4 +1,4 @@
-import { bigImage, enlargeImage, enlargeTitle } from "./utils.js";
+import { bigImage, enlargeImage, enlargeTitle } from "../utils/constants.js";
 
 export class Card {
   constructor(data, cardSelector) {

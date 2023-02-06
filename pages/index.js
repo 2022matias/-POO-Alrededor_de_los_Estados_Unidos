@@ -1,8 +1,9 @@
-import { Card } from "./Card.js";
-import { initialCards, modalFunctions, submitForm } from "./utils.js";
-import { FormValidator } from "./FormValidator.js";
+import { Card } from "../components/Card.js";
+import { initialCards, cardContainer } from "../utils/constants.js";
+import { modalFunctions, submitForm } from "../utils/utils.js";
+import { FormValidator } from "../components/FormValidator.js";
 
-const cardContainer = document.querySelector(".elements");
+
 
 initialCards.forEach((item) => {
   const card = new Card(item, "#elements");
