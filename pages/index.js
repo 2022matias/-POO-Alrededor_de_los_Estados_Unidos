@@ -1,15 +1,16 @@
-import { Card } from "../components/Card.js";
-import { initialCards, cardContainer } from "../utils/constants.js";
+import { initialCards, cardListSelection } from "../utils/constants.js";
 import { modalFunctions, submitForm } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
+import { Section } from "../components/Section.js";
 
 
 
-initialCards.forEach((item) => {
-  const card = new Card(item, "#elements");
-  const cardElement = card._createCard();
-  cardContainer.append(cardElement);
-});
+const cardList = new Section({items: initialCards}, cardListSelection);
+cardList.renderItems(); 
+
+
+
+
 
 modalFunctions();
 submitForm;

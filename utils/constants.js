@@ -41,6 +41,7 @@ export const inputSkill = document.querySelector(".popup__skill");
 export const newCardPlace = document.querySelector(".popup__place");
 export const newCardLink = document.querySelector(".popup__url");
 export const cardContainer = document.querySelector(".elements");
+export const cardListSelection = document.querySelector("#elements");
 
 
 export const openFormImage = document.querySelector(".profile__add-button");
