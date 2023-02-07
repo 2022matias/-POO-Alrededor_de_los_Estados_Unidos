@@ -5,8 +5,18 @@ import { Section } from "../components/Section.js";
 
 
 
-const cardList = new Section({items: initialCards}, cardListSelection);
+const cardList = new Section({
+  data: initialCards,
+  renderer: (Card) => {
+    const card = new Card(item, "#elements");
+    const cardElement = card._createCard();
+    this.setItem(cardElement);
+  },
+},
+cardListSelection
+); 
 cardList.renderItems(); 
+
 
 
 

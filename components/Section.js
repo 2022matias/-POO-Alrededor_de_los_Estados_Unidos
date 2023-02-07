@@ -6,12 +6,11 @@ export class Section {
   }
 	renderItems() {
 		this._initialArray.forEach((item) => {
-			const card = new Card(item, containerSelector);
-			const cardElement = card._createCard();
-			this.setItem(cardElement);
+			this._renderer(item);
 	});
 	}
 	setItem(element) {
 		this._container.append(element);
 	}
 }
+
