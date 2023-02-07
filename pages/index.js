@@ -1,22 +1,21 @@
-import { initialCards, cardListSelection } from "../utils/constants.js";
+import { initialCards, cardContainer } from "../utils/constants.js";
 import { modalFunctions, submitForm } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
+import { Card } from "../components/Card.js";
 
-
-
-const cardList = new Section({
-  data: initialCards,
-  renderer: (Card) => {
-    const card = new Card(item, "#elements");
-    const cardElement = card._createCard();
-    this.setItem(cardElement);
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, "#elements");
+      const cardElement = card._createCard();
+      cardList.setItem(cardElement);
+    },
   },
-},
-cardListSelection
-); 
-cardList.renderItems(); 
-
+  cardContainer
+);
+cardList.renderItems();
 
 
 

@@ -10,32 +10,68 @@ export const submitForm = popupFormImageContainer.addEventListener(
   }
 );
 
+
+export class Popup {
+  constructor(popupSelector) {
+    this._popupSelector = popupSelector;
+  }
+  open() {
+    popupProfile.classList.toggle("popup-visible");
+  }
+  close() {
+    popupProfile.classList.toggle("popup-visible");
+    popupProfile.classList.add("opacity");
+  }
+  _handleEscClose() {
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        popupProfile.classList.add("popup-visible");
+        popupProfile.classList.add("opacity");
+      }
+    });
+  }
+  setEventListeners() {
+    document.addEventListener("click", (evt) => {
+      if (evt.target.className === "fondo") {
+        popupProfile.classList.add("popup-visible");
+        popupProfile.classList.add("opacity");
+      }
+    });
+  }
+}
+
+
+
 export function modalFunctions() {
-  openFormButton.addEventListener("click", toggleProfile);
-  popupCloseIcon.addEventListener("click", toggleProfile);
+  openFormButton.addEventListener("click", () => {
+    this.open();
+  });
+  popupCloseIcon.addEventListener("click", () => {
+    this.close();
+  });
   openFormImage.addEventListener("click", toggleCardForm);
   closeFormImage.addEventListener("click", toggleCardForm);
   popupContainer.addEventListener("submit", handleFormSubmit);
 }
 
-function toggleProfile() {
-  inputName.value = profileName.textContent;
-  inputSkill.value = profileSkill.textContent;
-  popupProfile.classList.toggle("popup-visible");
-  popupProfile.classList.add("opacity");
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      popupProfile.classList.add("popup-visible");
-      popupProfile.classList.add("opacity");
-    }
-  });
-  document.addEventListener("click", (evt) => {
-    if (evt.target.className === "fondo") {
-      popupProfile.classList.add("popup-visible");
-      popupProfile.classList.add("opacity");
-    }
-  });
-}
+// function toggleProfile() {
+//   inputName.value = profileName.textContent;
+//   inputSkill.value = profileSkill.textContent;
+//   popupProfile.classList.toggle("popup-visible");
+//   popupProfile.classList.add("opacity");
+//   document.addEventListener("keydown", (evt) => {
+//     if (evt.key === "Escape") {
+//       popupProfile.classList.add("popup-visible");
+//       popupProfile.classList.add("opacity");
+//     }
+//   });
+//   document.addEventListener("click", (evt) => {
+//     if (evt.target.className === "fondo") {
+//       popupProfile.classList.add("popup-visible");
+//       popupProfile.classList.add("opacity");
+//     }
+//   });
+// }
 
 function toggleCardForm() {
   popupFormImage.classList.toggle("visibility");
