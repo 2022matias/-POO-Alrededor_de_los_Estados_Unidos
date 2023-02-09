@@ -11,67 +11,127 @@ export const submitForm = popupFormImageContainer.addEventListener(
 );
 
 
+
+
+
 export class Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, classSelector) {
     this._popupSelector = popupSelector;
+    this._classSelector = classSelector;
   }
   open() {
-    popupProfile.classList.toggle("popup-visible");
+    this._popupSelector.classList.toggle(this._classSelector);
   }
   close() {
-    popupProfile.classList.toggle("popup-visible");
-    popupProfile.classList.add("opacity");
+    this._popupSelector.classList.toggle(this._classSelector);
+    this._popupSelector.classList.add("opacity");
   }
   _handleEscClose() {
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
-        popupProfile.classList.add("popup-visible");
-        popupProfile.classList.add("opacity");
+        this._popupSelector.classList.add(this._classSelector);
+        this._popupSelector.classList.add("opacity");
       }
     });
   }
   setEventListeners() {
     document.addEventListener("click", (evt) => {
       if (evt.target.className === "fondo") {
-        popupProfile.classList.add("popup-visible");
-        popupProfile.classList.add("opacity");
+        this._popupSelector.classList.add(this._classSelector);
+        this._popupSelector.classList.add("opacity");
       }
     });
   }
 }
 
+export class PopupWithImage extends Popup {
+  constructor(popupSelector, classSelector) {
+    super(popupSelector, classSelector);
+  }
+  open() {
+    super.open();
+  //   _zoomIn() {
+  //     enlargeImage.classList.add("opacity");
+  //     enlargeTitle.textContent = this._name;
+  //     bigImage.src = this._link;
+  //     enlargeImage.classList.remove("no-vision");
+  // }  METODO DE CARD
+}
+}
+
+export class PopupWithForm extends Popup {
+  constructor(popupSelector, classSelector, submitCallBack) {
+    super(popupSelector, classSelector);
+    this._submitCallBack = submitCallBack;
+  };
+  _getInputValues() {
+    // profileName.textContent = inputName.value;
+    // profileSkill.textContent = inputSkill.value;
+  }
+  setEventListeners() {
+    super.setEventListener();
+    popupContainer.addEventListener("submit", submitCallBack);
+  }
+}
+
+export class UserInfo extends Popup {
+  constructor(popupSelector, classSelector, { name, skill}) {
+    super(popupSelector, classSelector);
+    this._submitCallBack = submitCallBack;
+    this._name = name;
+    this._skill = skill;
+  };
+  getUserInfo() {
+    return {
+      name: this._name,
+      skill: this._skill
+    }
+  }
+  setUserInfo() {
+    // inputName.value = profileName.textContent;
+    // inputSkill.value = profileSkill.textContent;
+  }
+}
+
+
+
+
+
+
 
 
 export function modalFunctions() {
-  openFormButton.addEventListener("click", () => {
-    this.open();
-  });
-  popupCloseIcon.addEventListener("click", () => {
-    this.close();
-  });
+  // openFormButton.addEventListener("click", () => {
+  //   this.open();
+  // });
+  // popupCloseIcon.addEventListener("click", () => {
+  //   this.close();
+  // });
+  openFormButton.addEventListener("click", toggleProfile);
+  popupCloseIcon.addEventListener("click", toggleProfile);
   openFormImage.addEventListener("click", toggleCardForm);
   closeFormImage.addEventListener("click", toggleCardForm);
   popupContainer.addEventListener("submit", handleFormSubmit);
 }
 
-// function toggleProfile() {
-//   inputName.value = profileName.textContent;
-//   inputSkill.value = profileSkill.textContent;
-//   popupProfile.classList.toggle("popup-visible");
-//   popupProfile.classList.add("opacity");
-//   document.addEventListener("keydown", (evt) => {
-//     if (evt.key === "Escape") {
-//       popupProfile.classList.add("popup-visible");
-//       popupProfile.classList.add("opacity");
-//     }
-//   });
-//   document.addEventListener("click", (evt) => {
-//     if (evt.target.className === "fondo") {
-//       popupProfile.classList.add("popup-visible");
-//       popupProfile.classList.add("opacity");
-//     }
-//   });
-// }
+function toggleProfile() {
+  inputName.value = profileName.textContent;
+  inputSkill.value = profileSkill.textContent;
+  popupProfile.classList.toggle("popup-visible");
+  popupProfile.classList.add("opacity");
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      popupProfile.classList.add("popup-visible");
+      popupProfile.classList.add("opacity");
+    }
+  });
+  document.addEventListener("click", (evt) => {
+    if (evt.target.className === "fondo") {
+      popupProfile.classList.add("popup-visible");
+      popupProfile.classList.add("opacity");
+    }
+  });
+}
 
 function toggleCardForm() {
   popupFormImage.classList.toggle("visibility");
