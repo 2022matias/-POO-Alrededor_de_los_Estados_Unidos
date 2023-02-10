@@ -1,6 +1,7 @@
 import { Card } from "../components/Card.js"
-import { popupFormImageContainer, openFormButton, popupCloseIcon, openFormImage,closeFormImage, popupContainer
-  , inputName, profileName, inputSkill, profileSkill, popupProfile, popupFormImage, cardContainer, newCardPlace, newCardLink } from "./constants.js";
+import { popupFormImageContainer, openFormButton, popupCloseIcon, popupContainer
+  , profileName, profileSkill, popupFormImage, cardContainer, newCardPlace, 
+  newCardLink, enlargeImage, enlargeTitle, bigImage} from "./constants.js";
 
 export const submitForm = popupFormImageContainer.addEventListener(
   "submit",
@@ -49,15 +50,14 @@ export class PopupWithImage extends Popup {
     super(popupSelector, classSelector);
   }
   open() {
-    super.open();
-  //   _zoomIn() {
-  //     enlargeImage.classList.add("opacity");
-  //     enlargeTitle.textContent = this._name;
-  //     bigImage.src = this._link;
-  //     enlargeImage.classList.remove("no-vision");
-  // }  METODO DE CARD
+    super.open(); 
+    enlargeImage.classList.add("opacity");
+    enlargeTitle.textContent = this._name;
+    bigImage.src = this._link;
+    
+  }
 }
-}
+
 
 export class PopupWithForm extends Popup {
   constructor(popupSelector, classSelector, submitCallBack) {
@@ -65,19 +65,28 @@ export class PopupWithForm extends Popup {
     this._submitCallBack = submitCallBack;
   };
   _getInputValues() {
-    // profileName.textContent = inputName.value;
-    // profileSkill.textContent = inputSkill.value;
-  }
+    
+  };
   setEventListeners() {
     super.setEventListener();
     popupContainer.addEventListener("submit", submitCallBack);
+    openFormButton.addEventListener("click", this.open());
+    popupCloseIcon.addEventListener("click", this.close());
+  }
+  open() {
+    super.open();
+} 
+  close() {
+    super.close();
+    popupContainer.reset();
   }
 }
+
+
 
 export class UserInfo extends Popup {
   constructor(popupSelector, classSelector, { name, skill}) {
     super(popupSelector, classSelector);
-    this._submitCallBack = submitCallBack;
     this._name = name;
     this._skill = skill;
   };
@@ -88,8 +97,8 @@ export class UserInfo extends Popup {
     }
   }
   setUserInfo() {
-    // inputName.value = profileName.textContent;
-    // inputSkill.value = profileSkill.textContent;
+    profileName.textContent = this_.name.value;
+    profileSkill.textContent = this._skill.value;
   }
 }
 
@@ -99,62 +108,61 @@ export class UserInfo extends Popup {
 
 
 
-
-export function modalFunctions() {
+// export function modalFunctions() {
   // openFormButton.addEventListener("click", () => {
   //   this.open();
   // });
   // popupCloseIcon.addEventListener("click", () => {
   //   this.close();
   // });
-  openFormButton.addEventListener("click", toggleProfile);
-  popupCloseIcon.addEventListener("click", toggleProfile);
-  openFormImage.addEventListener("click", toggleCardForm);
-  closeFormImage.addEventListener("click", toggleCardForm);
-  popupContainer.addEventListener("submit", handleFormSubmit);
-}
+  // openFormButton.addEventListener("click", toggleProfile);
+  // popupCloseIcon.addEventListener("click", toggleProfile);
+//   openFormImage.addEventListener("click", toggleCardForm);
+//   closeFormImage.addEventListener("click", toggleCardForm);
+//   popupContainer.addEventListener("submit", handleFormSubmit);
+// }
 
-function toggleProfile() {
-  inputName.value = profileName.textContent;
-  inputSkill.value = profileSkill.textContent;
-  popupProfile.classList.toggle("popup-visible");
-  popupProfile.classList.add("opacity");
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      popupProfile.classList.add("popup-visible");
-      popupProfile.classList.add("opacity");
-    }
-  });
-  document.addEventListener("click", (evt) => {
-    if (evt.target.className === "fondo") {
-      popupProfile.classList.add("popup-visible");
-      popupProfile.classList.add("opacity");
-    }
-  });
-}
+// function toggleProfile() {
+//   inputName.value = profileName.textContent;
+//   inputSkill.value = profileSkill.textContent;
+//   popupProfile.classList.toggle("popup-visible");
+//   popupProfile.classList.add("opacity");
+//   document.addEventListener("keydown", (evt) => {
+//     if (evt.key === "Escape") {
+//       popupProfile.classList.add("popup-visible");
+//       popupProfile.classList.add("opacity");
+//     }
+//   });
+//   document.addEventListener("click", (evt) => {
+//     if (evt.target.className === "fondo") {
+//       popupProfile.classList.add("popup-visible");
+//       popupProfile.classList.add("opacity");
+//     }
+//   });
+// }
 
-function toggleCardForm() {
-  popupFormImage.classList.toggle("visibility");
-  popupFormImage.classList.add("opacity");
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      popupFormImage.classList.add("visibility");
-      popupFormImage.classList.add("opacity");
-    }
-  });
-  document.addEventListener("click", (evt) => {
-    if (evt.target.className === "fondo") {
-      popupFormImage.classList.add("visibility");
-      popupFormImage.classList.add("opacity");
-    }
-  });
-}
-function handleFormSubmit(event) {
-  event.preventDefault(event);
-  profileName.textContent = inputName.value;
-  profileSkill.textContent = inputSkill.value;
-  popupProfile.classList.add("popup-visible");
-}
+// function toggleCardForm() {
+//   popupFormImage.classList.toggle("visibility");
+//   popupFormImage.classList.add("opacity");
+//   document.addEventListener("keydown", (evt) => {
+//     if (evt.key === "Escape") {
+//       popupFormImage.classList.add("visibility");
+//       popupFormImage.classList.add("opacity");
+//     }
+//   });
+//   document.addEventListener("click", (evt) => {
+//     if (evt.target.className === "fondo") {
+//       popupFormImage.classList.add("visibility");
+//       popupFormImage.classList.add("opacity");
+//     }
+//   });
+// }
+// function handleFormSubmit(event) {
+//   event.preventDefault(event);
+//   profileName.textContent = inputName.value;
+//   profileSkill.textContent = inputSkill.value;
+//   popupProfile.classList.add("popup-visible");
+// }
 
 function addCardForm() {
   const name = newCardPlace.value;

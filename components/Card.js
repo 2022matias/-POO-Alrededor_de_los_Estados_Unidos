@@ -1,4 +1,5 @@
-import { bigImage, enlargeImage, enlargeTitle } from "../utils/constants.js";
+import { enlargeImage } from "../utils/constants.js";
+import { PopupWithImage } from "../utils/utils.js";
 
 export class Card {
   constructor(data, cardSelector) {
@@ -49,10 +50,9 @@ export class Card {
   }
 
   _zoomIn() {
-    enlargeImage.classList.add("opacity");
-    enlargeTitle.textContent = this._name;
-    bigImage.src = this._link;
-    enlargeImage.classList.remove("no-vision");
+    const popupWithImage = new PopupWithImage(enlargeImage, "no-vision");
+    popupWithImage.open();
+
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
         enlargeImage.classList.add("no-vision");

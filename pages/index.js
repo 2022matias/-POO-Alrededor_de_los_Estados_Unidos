@@ -1,5 +1,5 @@
-import { initialCards, cardContainer } from "../utils/constants.js";
-import { modalFunctions, submitForm } from "../utils/utils.js";
+import { initialCards, cardContainer, popupProfile, inputName, inputSkill } from "../utils/constants.js";
+import { submitForm, PopupWithForm, UserInfo } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { Card } from "../components/Card.js";
@@ -17,7 +17,13 @@ const cardList = new Section(
 );
 cardList.renderItems();
 
+const popupWithForm = new PopupWithForm(popupProfile, ".popup-visible");
+  popupWithForm.open();
+  popupWithForm.close();
 
+
+const userInfo = new UserInfo(popupProfile, ".popup-visible", inputName, inputSkill);
+userInfo.setUserInfo();
 
 
 
