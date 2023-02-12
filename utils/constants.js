@@ -29,7 +29,6 @@ export const bigImage = document.querySelector(".enlarge-image__image");
 export const enlargeTitle = document.querySelector(".enlarge-image__title");
 export const enlargeImage = document.querySelector(".enlarge-image");
 
-
 export const openFormButton = document.querySelector(".profile__edit-button");
 export const popupProfile = document.querySelector(".popup");
 export const popupContainer = document.querySelector(".popup__container");
@@ -42,7 +41,6 @@ export const newCardPlace = document.querySelector(".popup__place");
 export const newCardLink = document.querySelector(".popup__url");
 export const cardContainer = document.querySelector(".elements");
 export const cardListSelection = document.querySelector("#elements");
-
 
 export const openFormImage = document.querySelector(".profile__add-button");
 export const popupFormImage = document.querySelector(".popup_card");

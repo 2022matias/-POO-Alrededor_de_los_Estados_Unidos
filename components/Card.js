@@ -1,5 +1,5 @@
 import { enlargeImage } from "../utils/constants.js";
-import { PopupWithImage } from "../utils/utils.js";
+import { popupWithImage } from "./PopupWithImage.js";
 
 export class Card {
   constructor(data, cardSelector) {
@@ -7,8 +7,8 @@ export class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
   }
-	
-	 _createCard() {
+
+  _createCard() {
     const cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".element")
@@ -20,7 +20,7 @@ export class Card {
     return this._element;
   }
 
-	_setEventListeners() {
+  _setEventListeners() {
     this._element
       .querySelector(".element__heart")
       .addEventListener("click", () => {
@@ -28,8 +28,8 @@ export class Card {
       });
     this._element
       .querySelector(".element__image")
-      .addEventListener("click", () => {
-        this._zoomIn();
+      .addEventListener("click", (evt) => {
+        this._zoomIn(evt);
       });
     this._element
       .querySelector(".element__trash")
@@ -39,7 +39,6 @@ export class Card {
   }
 
   _giveLike() {
-    console.log(this._element);
     this._element
       .querySelector(".element__heart")
       .classList.toggle("element__heart-black");
@@ -49,10 +48,8 @@ export class Card {
     this._element.remove();
   }
 
-  _zoomIn() {
-    const popupWithImage = new PopupWithImage(enlargeImage, "no-vision");
-    popupWithImage.open();
-
+  _zoomIn(evt) {
+    popupWithImage.open(evt);
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
         enlargeImage.classList.add("no-vision");
