@@ -1,27 +1,34 @@
+const yosemite = new URL("https://code.s3.yandex.net/web-code/yosemite.jpg", import.meta.url);
+const loise = new URL("https://code.s3.yandex.net/web-code/lake-louise.jpg", import.meta.url);
+const calvas = new URL("https://code.s3.yandex.net/web-code/bald-mountains.jpg", import.meta.url);
+const latemar = new URL("https://code.s3.yandex.net/web-code/latemar.jpg", import.meta.url);
+const vanoise = new URL("https://code.s3.yandex.net/web-code/vanoise.jpg", import.meta.url);
+const braies = new URL("https://code.s3.yandex.net/web-code/lago.jpg", import.meta.url);
+
 export const initialCards = [
   {
     name: "Valle de Yosemite",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+    link: yosemite,
   },
   {
     name: "Lago Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    link: loise,
   },
   {
     name: "Montañas Calvas",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+    link: calvas,
   },
   {
     name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+    link: latemar,
   },
   {
     name: "Parque Nacional de la Vanoise",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+    link: vanoise,
   },
   {
     name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+    link: braies,
   },
 ];
 

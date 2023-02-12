@@ -1,4 +1,5 @@
-import { initialCards, cardContainer, popupFormImage, popupProfile, popupCloseIcon, closeFormImage, inputName, inputSkill } from "../utils/constants.js";
+import "./styles/index.css";
+import { initialCards, cardContainer, popupFormImage, popupProfile, popupCloseIcon, closeFormImage } from "../utils/constants.js";
 import { addCardForm } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -19,15 +20,6 @@ const cardList = new Section(
 );
 cardList.renderItems();
 
-const popupWithForm = new PopupWithForm(
-  popupFormImage,
-  "visibility",
-  addCardForm,
-  closeFormImage.addEventListener("click", () => {
-    popupWithForm.close();
-  })
-);
-
 const popupWithFormProfile = new PopupWithForm(
   popupProfile,
   "popup-visible",
@@ -37,6 +29,15 @@ const popupWithFormProfile = new PopupWithForm(
   },
   popupCloseIcon.addEventListener("click", () => {
     popupWithFormProfile.close();
+  })
+);
+
+const popupWithForm = new PopupWithForm(
+  popupFormImage,
+  "visibility",
+  addCardForm,
+  closeFormImage.addEventListener("click", () => {
+    popupWithForm.close();
   })
 );
 
