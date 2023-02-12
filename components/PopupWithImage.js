@@ -9,8 +9,7 @@ export class PopupWithImage extends Popup {
   open(evt) {
     super.open();
     enlargeImage.classList.add("opacity");
-    enlargeTitle.textContent =
-      evt.target.nextElementSibling.firstElementChild.firstElementChild.textContent;
+    enlargeTitle.textContent = evt.target.nextElementSibling.firstElementChild.textContent;
     bigImage.src = evt.target.getAttribute("src");
   }
 }

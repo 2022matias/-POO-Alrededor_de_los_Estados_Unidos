@@ -7,8 +7,8 @@ export class Popup {
     this._popupSelector.classList.toggle(this._classSelector);
   }
   close() {
-    this._popupSelector.classList.toggle(this._classSelector);
-    this._popupSelector.classList.toggle("opacity");
+    this._popupSelector.classList.add(this._classSelector);
+    this._popupSelector.classList.add("opacity");
   }
   _handleEscClose() {
     document.addEventListener("keydown", (evt) => {
@@ -25,5 +25,7 @@ export class Popup {
         this._popupSelector.classList.add("opacity");
       }
     });
+    this.close();
+    this._handleEscClose();
   }
 }

@@ -23,7 +23,7 @@ export function addCardForm(values, evt) {
   this.close();
 }
 
-openFormImage.addEventListener("click", (evt) => {
+openFormImage.addEventListener("click", () => {
   const popupWithForm = new PopupWithForm(
     popupFormImage,
     "visibility",
@@ -32,7 +32,7 @@ openFormImage.addEventListener("click", (evt) => {
   popupWithForm.open();
 });
 
-openFormButton.addEventListener("click", (evt) => {
+openFormButton.addEventListener("click", () => {
   const popupWithForm = new PopupWithForm(
     popupProfile,
     "popup-visible",
