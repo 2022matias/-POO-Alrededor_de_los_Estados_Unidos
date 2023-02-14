@@ -1,9 +1,9 @@
-const yosemite = new URL("https://code.s3.yandex.net/web-code/yosemite.jpg", import.meta.url);
-const loise = new URL("https://code.s3.yandex.net/web-code/lake-louise.jpg", import.meta.url);
-const calvas = new URL("https://code.s3.yandex.net/web-code/bald-mountains.jpg", import.meta.url);
-const latemar = new URL("https://code.s3.yandex.net/web-code/latemar.jpg", import.meta.url);
-const vanoise = new URL("https://code.s3.yandex.net/web-code/vanoise.jpg", import.meta.url);
-const braies = new URL("https://code.s3.yandex.net/web-code/lago.jpg", import.meta.url);
+const yosemite = new URL("../src/images/valle-de-yosemite1.jpg", import.meta.url);
+const loise = new URL("../src/images/lago-louise2.png", import.meta.url);
+const calvas = new URL("../src/images/montañas-calvas3.png", import.meta.url);
+const latemar = new URL("../src/images/latemar4.png", import.meta.url);
+const vanoise = new URL("../src/images/vanoise-national...5.png", import.meta.url);
+const braies = new URL("../src/images/lago-di-braies6.png", import.meta.url);
 
 export const initialCards = [
   {
