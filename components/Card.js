@@ -6,14 +6,13 @@ export class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._element = document.querySelector(this._cardSelector).content.querySelector(".element").cloneNode(true);
+    this._likeButton = this._element.querySelector(".element__heart");
+    this._image = this._element.querySelector(".element__image");
+    this._deleteButton = this._element.querySelector(".element__trash");
   }
 
   _createCard() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".element")
-      .cloneNode(true);
-    this._element = cardElement;
     this._element.querySelector(".element__image").src = this._link;
     this._element.querySelector(".element__name").textContent = this._name;
     this._setEventListeners();
@@ -21,51 +20,46 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__heart")
-      .addEventListener("click", () => {
+    this._likeButton.addEventListener("click", () => {
         this._giveLike();
       });
-    this._element
-      .querySelector(".element__image")
-      .addEventListener("click", (evt) => {
+      this._image.addEventListener("click", (evt) => {
         this._zoomIn(evt);
       });
-    this._element
-      .querySelector(".element__trash")
-      .addEventListener("click", () => {
+      this._deleteButton.addEventListener("click", () => {
         this._deleteCard();
       });
   }
 
   _giveLike() {
-    this._element
-      .querySelector(".element__heart")
-      .classList.toggle("element__heart-black");
+    this._likeButton.classList.toggle("element__heart-black");
   }
 
   _deleteCard() {
     this._element.remove();
+  }
+  
+  _addClass() {
+    enlargeImage.classList.add("no-vision");
+    enlargeImage.classList.add("opacity");
   }
 
   _zoomIn(evt) {
     popupWithImage.open(evt);
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
-        enlargeImage.classList.add("no-vision");
-        enlargeImage.classList.add("opacity");
+        this._addClass();       
       }
     });
-    document.addEventListener("click", (evt) => {
-      if (evt.target.className === "fondo") {
-        enlargeImage.classList.add("no-vision");
-        enlargeImage.classList.add("opacity");
+    document.addEventListener("click", (clickEvent) => {
+      if (clickEvent.target.className === "fondo") {
+        this._addClass();
       }
     });
     document
       .querySelector(".enlarge-image__close-image")
-      .addEventListener("click", function () {
-        enlargeImage.classList.add("no-vision");
+      .addEventListener("click", () => {
+        this._addClass();
       });
   }
 }

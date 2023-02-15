@@ -5,12 +5,14 @@ export class UserInfo {
     this._name = name;
     this._skill = job;
   }
+
   getUserInfo() {
     return {
       name: this._name.textContent,
       work: this._skill.textContent,
     };
   }
+  
   setUserInfo(newName, newJob) {
     profileName.textContent = newName;
     profileSkill.textContent = newJob;

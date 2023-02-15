@@ -6,6 +6,7 @@ export class PopupWithImage extends Popup {
     super(popupSelector, classSelector);
     this._popupSelector = popupSelector;
   }
+  
   open(evt) {
     super.open();
     enlargeImage.classList.add("opacity");
