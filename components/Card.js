@@ -10,6 +10,9 @@ export class Card {
     this._likeButton = this._element.querySelector(".element__heart");
     this._image = this._element.querySelector(".element__image");
     this._deleteButton = this._element.querySelector(".element__trash");
+    this._keyHandler = this._keyHandler.bind(this);
+    this._clickHandler = this._clickHandler.bind(this);
+    this._clickButton = this._clickButton.bind(this);
   }
 
   _createCard() {
@@ -37,29 +40,53 @@ export class Card {
 
   _deleteCard() {
     this._element.remove();
+    this._element = null;
   }
   
   _addClass() {
     enlargeImage.classList.add("no-vision");
     enlargeImage.classList.add("opacity");
+    document.removeEventListener(this._keyHandler);
+    document.removeEventListener(this._clickHandler);
+    document.removeEventListener(this._clickButton);
   }
 
-  _zoomIn(evt) {
-    popupWithImage.open(evt);
-    document.addEventListener("keydown", (evt) => {
+  _keyHandler(evt) {
       if (evt.key === "Escape") {
         this._addClass();       
       }
-    });
-    document.addEventListener("click", (clickEvent) => {
+    };
+
+    _clickHandler(clickEvent) {
       if (clickEvent.target.className === "fondo") {
-        this._addClass();
+        this._addClass();       
       }
-    });
-    document
-      .querySelector(".enlarge-image__close-image")
-      .addEventListener("click", () => {
-        this._addClass();
-      });
+    }
+
+    _clickButton() {
+      this._addClass();
+    }
+  
+
+  _zoomIn(evt) {
+    popupWithImage.open(evt);
+    document.addEventListener("keydown", this._keyHandler);
+    document.addEventListener("click", this._clickHandler);
+    document.querySelector(".enlarge-image__close-image").addEventListener("click", this._clickButton);
+    // document.addEventListener("keydown", (evt) => {
+    //   if (evt.key === "Escape") {
+    //     this._addClass();       
+    //   }
+    // });
+    // document.addEventListener("click", (clickEvent) => {
+    //   if (clickEvent.target.className === "fondo") {
+    //     this._addClass();
+    //   }
+    // });
+    // document
+    //   .querySelector(".enlarge-image__close-image")
+    //   .addEventListener("click", () => {
+    //     this._addClass();
+    //   });
   }
 }
