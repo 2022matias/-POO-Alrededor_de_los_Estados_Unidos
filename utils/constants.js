@@ -42,6 +42,7 @@ export const popupContainer = document.querySelector(".popup__container");
 export const popupCloseIcon = popupContainer.querySelector(".popup__close-icon");
 export const profileName = document.querySelector(".profile__jacques");
 export const profileSkill = document.querySelector(".profile__explorer");
+export const profileAvatar = document.querySelector(".profile__avatar");
 export const inputName = document.querySelector(".popup__name");
 export const inputSkill = document.querySelector(".popup__skill");
 export const newCardPlace = document.querySelector(".popup__place");
