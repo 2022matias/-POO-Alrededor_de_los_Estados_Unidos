@@ -1,5 +1,5 @@
 import { profileName, profileSkill, profileAvatar } from "../utils/constants.js";
-import { Api } from "../components/Api";
+import { api } from "../components/Api";
 
 export class UserInfo {
   constructor(name, job, avatar) {
@@ -23,10 +23,11 @@ export class UserInfo {
   }
 }
 
-// Api.getUserInfo().then((res) =>{
-//   res.name,
-//   res.about,
-//   res.avatar
-// });
+api.getUserInfo().then((res) =>{
+  
+  res.name,
+  res.about,
+  res.avatar
+});
 
 export const userInfo = new UserInfo(profileName, profileSkill, profileAvatar);
