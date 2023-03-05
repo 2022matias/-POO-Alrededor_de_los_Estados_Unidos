@@ -1,4 +1,10 @@
 .profile__avatar {
+  border-radius: 50%;
   width: 120px;
   height: 120px;
+}
+
+.profile__avatar:hover {
+  /* background-image: url(../../../src/images/pencil.png); */
+  opacity: 0.8;  
 }

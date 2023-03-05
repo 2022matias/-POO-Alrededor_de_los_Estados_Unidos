@@ -1,12 +1,21 @@
-import { enlargeImage } from "../utils/constants.js";
+import { confirmButton, enlargeImage, popupQuestion, closeConfirmButton } from "../utils/constants.js";
+import { api } from "./Api.js";
 import { popupWithImage } from "./PopupWithImage.js";
 
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, userInfo = {}) {
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
+    this._likes = data.likes;
+    this._id = userInfo._id;
+    this._userInfo = userInfo;
+    this._ownerCardId = data.owner._id;
     this._cardSelector = cardSelector;
-    this._element = document.querySelector(this._cardSelector).content.querySelector(".element").cloneNode(true);
+    this._element = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".element")
+      .cloneNode(true);
     this._likeButton = this._element.querySelector(".element__heart");
     this._image = this._element.querySelector(".element__image");
     this._deleteButton = this._element.querySelector(".element__trash");
@@ -15,62 +24,95 @@ export class Card {
     this._clickButtonBind = this._clickButton.bind(this);
   }
 
+  isOwnerCard() {
+    return this._ownerCardId !== this._id;
+  }
+
   _createCard() {
     this._element.querySelector(".element__image").src = this._link;
     this._element.querySelector(".element__name").textContent = this._name;
+    this._element.querySelector(".element__contador").textContent =
+      this._likes.length;
     this._setEventListeners();
+    if (this.isOwnerCard()) {
+      this._deleteButton.style.display = "none";
+    }
+
     return this._element;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-        this._giveLike();
-      });
-      this._image.addEventListener("click", (evt) => {
-        this._zoomIn(evt);
-      });
-      this._deleteButton.addEventListener("click", () => {
-        this._deleteCard();
-      });
+      this._giveLike();
+    });
+    this._image.addEventListener("click", (evt) => {
+      this._zoomIn(evt);
+    });
+     this._deleteButton.addEventListener("click", () => {
+      popupQuestion.classList.remove("popup-visible");
+    confirmButton.addEventListener("click", () => {
+      // api._deleteCard(id).then((res) => {
+      //   .then(delete((`${this._options.baseUrl}/${res}`)))
+      this._closePopupConfirm(evt);
+    });
+    });
   }
 
+  _closePopupConfirm(evt) {
+    if (evt.key === "Escape") {
+      popupQuestion.classList.add("popup-visible");
+    }
+    if (clickEvent.target.className === "fondo") {
+      popupQuestion.classList.add("popup-visible");
+    }
+    closeConfirmButton.addEventListener("click", () => {
+      popupQuestion.classList.add("popup-visible");
+    });
+  }
+
+
   _giveLike() {
+    api.
     this._likeButton.classList.toggle("element__heart-black");
   }
-  
+
   _zoomIn(evt) {
     popupWithImage.open(evt);
     document.addEventListener("keydown", this._keyHandlerBind);
     document.addEventListener("click", this._clickHandlerBind);
-    document.querySelector(".enlarge-image__close-image").addEventListener("click", this._clickButtonBind);
+    document
+      .querySelector(".enlarge-image__close-image")
+      .addEventListener("click", this._clickButtonBind);
   }
 
   _deleteCard() {
     this._element.remove();
     this._element = null;
   }
-  
+
   _addClass() {
     enlargeImage.classList.add("no-vision");
     enlargeImage.classList.add("opacity");
     document.removeEventListener("keydown", this._keyHandlerBind);
     document.removeEventListener("click", this._clickHandlerBind);
-    document.querySelector(".enlarge-image__close-image").removeEventListener("click", this._clickButtonBind);
+    document
+      .querySelector(".enlarge-image__close-image")
+      .removeEventListener("click", this._clickButtonBind);
   }
 
   _keyHandler(evt) {
-      if (evt.key === "Escape") {
-        this._addClass();       
-      }
-    };
-
-    _clickHandler(clickEvent) {
-      if (clickEvent.target.className === "fondo") {
-        this._addClass();       
-      }
-    }
-
-    _clickButton() {
+    if (evt.key === "Escape") {
       this._addClass();
     }
+  }
+
+  _clickHandler(clickEvent) {
+    if (clickEvent.target.className === "fondo") {
+      this._addClass();
+    }
+  }
+
+  _clickButton() {
+    this._addClass();
+  }
 }
