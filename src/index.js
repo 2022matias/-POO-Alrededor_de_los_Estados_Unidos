@@ -68,3 +68,7 @@ api.getUserInfo().then((res) => {
     cardList.renderItems();
   });
 });
+
+// avatar.addEventListener("mouseover", () => {
+//   ....classList.add("...");
+// });

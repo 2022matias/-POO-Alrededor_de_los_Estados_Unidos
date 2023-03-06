@@ -1,7 +1,11 @@
-import { confirmButton, enlargeImage, popupQuestion, closeConfirmButton } from "../utils/constants.js";
+import {
+  enlargeImage,
+  popupQuestion,
+  closeConfirmButton,
+} from "../utils/constants.js";
 import { api } from "./Api.js";
-import { popupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForm.js";
+import { popupWithImage } from "./PopupWithImage.js";
 
 export class Card {
   constructor(data, cardSelector, userInfo = {}) {
@@ -39,6 +43,7 @@ export class Card {
     } else {
       this._likeButton.classList.remove("element__heart-black");
     }
+
     this._element.querySelector(".element__name").textContent = this._name;
     this._element.querySelector(".element__contador").textContent =
       this._likes.length;
@@ -46,6 +51,7 @@ export class Card {
     if (this.isOwnerCard()) {
       this._deleteButton.style.display = "none";
     }
+
     return this._element;
   }
 
@@ -60,22 +66,47 @@ export class Card {
       const confirm = new PopupWithForm(popupQuestion, "popup-visible", () => {
         api.deleteCard(this._data._id).then((res) => {
           evt.target.parentElement.parentElement.parentElement.remove();
+          confirm.close();
         });
-      }, closeConfirmButton.addEventListener("click", () => {
-        confirm.close();
-      }))
+        this._closePopupConfirm(evt);
+      });
+      // confirm.close();
+      // confirm.setEventListeners();
+      // popupQuestion.classList.remove("popup-visible");
+      // popupQuestion
+      //   .querySelector(".popup__container-confirm")
+      //   .addEventListener("submit", (evt) => {
+      //     console.log(`hola`);
+      //     evt.preventDefault();
+      //     api.deleteCard(this._data._id).then((res) => {
+      //       this._closePopupConfirm(evt);
+      //       popupQuestion.classList.add("popup-visible");
+      //     });
+      //     // // api._deleteCard(id).then((res) => {
+      //     // //   .then(delete((`${this._options.baseUrl}/${res}`)))
+      //     // this._closePopupConfirm(evt);
+      //   });
       confirm.open();
     });
   }
 
+  _closePopupConfirm(evt) {
+    if (evt.key === "Escape") {
+      popupQuestion.classList.add("popup-visible");
+    }
+    if (evt.target.className === "fondo") {
+      popupQuestion.classList.add("popup-visible");
+    }
+  }
+
   _giveLike() {
     const hasLike = this._likes.some((owner) => {
-      return owner._id === this._id; //id creador ===  id usuario(mia)   //
+      return owner._id === this._id;
     });
 
     if (!hasLike) {
-      api.giveLike(this._data._id).then((res) => {  // thisdataid no es igual a this_id?//
-        this._likes = res.likes;   //lo de adentro de likes = ...//
+      api.giveLike(this._data._id).then((res) => {
+        this._likes = res.likes;
         this._likeButton.classList.add("element__heart-black");
         this._element.querySelector(".element__contador").textContent =
           res.likes.length;

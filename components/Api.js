@@ -7,7 +7,9 @@ export class Api {
   }
 
   returnFetch(url, requestOptions) {
-    return fetch(`${this._options.baseUrl}/${url}`, requestOptions);
+    return fetch(`${this._options.baseUrl}/${url}`, requestOptions)
+      .then((res) => res.json())
+      .catch((error) => console.log("error", error));
   }
 
   getUserInfo() {
@@ -15,11 +17,7 @@ export class Api {
       method: "GET",
       headers: this._header,
     };
-    return this.returnFetch("users/me", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    return this.returnFetch("users/me", requestOptions);
   }
 
   getCards() {
@@ -27,11 +25,7 @@ export class Api {
       method: "GET",
       headers: this._header,
     };
-    return this.returnFetch("cards", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    return this.returnFetch("cards", requestOptions);
   }
 
   editProfile(name, about) {
@@ -44,11 +38,7 @@ export class Api {
       }),
     };
 
-    return this.returnFetch("users/me", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    return this.returnFetch("users/me", requestOptions);
   }
 
   addCard(name, link) {
@@ -60,78 +50,47 @@ export class Api {
         link: link,
       }),
     };
-    return this.returnFetch("cards", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    return this.returnFetch("cards", requestOptions);
   }
 
-	deleteCard(id) {
-		const requestOptions = {
+  deleteCard(id) {
+    const requestOptions = {
       method: "DELETE",
       headers: this._header,
-      body: JSON.stringify({
-        id: id,
-      }),
-	};
-	return this.returnFetch("cards", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    };
+    return this.returnFetch(`cards/${id}`, requestOptions);
   }
 
-	giveLike(id) {
-		const requestOptions = {
+  giveLike(cardId) {
+    const requestOptions = {
       method: "PUT",
       headers: this._header,
-      body: JSON.stringify({
-        id: id,
-      }),
-	};
-	return this.returnFetch("cards/likes", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    };
+    return this.returnFetch(`cards/likes/${cardId}`, requestOptions);
   }
 
-	removeLike(id) {
-		const requestOptions = {
+  removeLike(cardId) {
+    const requestOptions = {
       method: "DELETE",
       headers: this._header,
-      body: JSON.stringify({
-        id: id,
-      }),
-	};
-	return this.returnFetch("cards/likes", requestOptions)
-      .then((res) => {
-        return res.json();
-      })
-      .catch((error) => console.log("error", error));
+    };
+    return this.returnFetch(`cards/likes/${cardId}`, requestOptions);
   }
 
+  updateAvatar(avatar) {
+    const requestOptions = {
+      method: "PATCH",
+      headers: this._header,
+      body: JSON.stringify({
+        avatar: avatar,
+      }),
+    };
 
-	updateAvatar(avatar) {
-		const requestOptions = {
-			method: "PATCH",
-			headers: this._header,
-			body: JSON.stringify({
-				avatar: avatar,
-			}),
-		};
-
-	return this.returnFetch("users/me", requestOptions)
-		.then((res) => {
-			return res.json();
-		})
-		.catch((error) => console.log("error", error));
-}
+    return this.returnFetch("users/me", requestOptions);
+  }
 }
 
 export const api = new Api({
   authorization: "61c6f68c-f2f6-410f-a75d-8fc57629e184",
   baseUrl: "https://around.nomoreparties.co/v1/web_es_cohort_04",
 });
-
