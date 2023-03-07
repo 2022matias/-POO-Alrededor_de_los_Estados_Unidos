@@ -6,6 +6,10 @@ import {
   popupProfile,
   popupCloseIcon,
   closeFormImage,
+  profilePencil,
+  profileAvatar,
+  popupButtonAvatar,
+  popupCloseAvatar
 } from "../utils/constants.js";
 import { addCardForm } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -42,6 +46,22 @@ const popupWithForm = new PopupWithForm(
   })
 );
 
+// const popupFormAvatar = new PopupWithForm(
+//   profilePencil,
+//   "popup-visible",
+//   (inputValue) => {
+//     api.editProfile(inputValue.value).then((res) => {
+//       userInfo.setUserInfo(
+//         inputValue.value
+//       );
+//       popupFormAvatar.close();
+//     });
+//   },
+//   popupCloseAvatar.addEventListener("click", () => {
+//     popupFormAvatar.close();
+//   })
+// );
+
 const validar = new FormValidator({});
 validar.enableValidation();
 const formularios = Array.from(document.querySelectorAll(".popup__container"));
@@ -53,6 +73,10 @@ formularios.forEach((elemento) => {
 
 api.getUserInfo().then((res) => {
   userInfo.setUserInfo(res.name, res.about, res.avatar);
+  profileAvatar.addEventListener("mouseover", (evt) => {
+    profilePencil.classList.remove("visibility");
+    evt.target.style.opacity = "0.5";
+  })
   api.getCards().then((resCards) => {
     const cardList = new Section(
       {
@@ -68,7 +92,3 @@ api.getUserInfo().then((res) => {
     cardList.renderItems();
   });
 });
-
-// avatar.addEventListener("mouseover", () => {
-//   ....classList.add("...");
-// });

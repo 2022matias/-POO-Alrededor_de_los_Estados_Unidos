@@ -24,11 +24,18 @@
       </header>
 
       <section class="profile">
-        <img
+        <div style="position:relative">
+          <img
           src="<%=require('./images/Avatar.png')%>"
           class="profile__avatar"
           alt="imagen de Jacques Cousteau"
-        />
+          />
+          <img
+          src="<%=require('./images/pencil.png')%>"
+          class="profile__pencil visibility"
+          alt="lapiz de edición de foto"
+          />
+        </div>
         <div class="profile__info">
           <h2 class="profile__jacques">Jacques Cousteau</h2>
           <img

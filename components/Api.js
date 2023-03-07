@@ -28,13 +28,14 @@ export class Api {
     return this.returnFetch("cards", requestOptions);
   }
 
-  editProfile(name, about) {
+  editProfile(name, about, avatar) {
     const requestOptions = {
       method: "PATCH",
       headers: this._header,
       body: JSON.stringify({
         name: name,
         about: about,
+				avatar: avatar,
       }),
     };
 
