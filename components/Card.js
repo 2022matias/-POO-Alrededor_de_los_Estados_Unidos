@@ -60,6 +60,7 @@ export class Card {
       const confirm = new PopupWithForm(popupQuestion, "popup-visible", () => {
         api.deleteCard(this._data._id).then((res) => {
           evt.target.parentElement.parentElement.parentElement.remove();
+          confirm.close();
         });
       }, closeConfirmButton.addEventListener("click", () => {
         confirm.close();

@@ -6,8 +6,11 @@ import {
   cardContainer,
   openFormButton,
   openFormImage,
+  popupAvatar,
   popupFormImage,
   popupProfile,
+  profilePencil,
+  allPopupButton
 } from "./constants.js";
 
 export function addCardForm(values, evt) {
@@ -22,7 +25,7 @@ export function addCardForm(values, evt) {
         {
           items: data,
           renderer: (item) => {
-            const card = new Card(cardResponse, "#elements");
+            const card = new Card(cardResponse, "#elements", res);
             const cardElement = card._createCard();
             cardList.setItemStart(cardElement);
           },
@@ -52,3 +55,16 @@ openFormButton.addEventListener("click", () => {
   );
   popupWithForm.open();
 });
+
+profilePencil.addEventListener("click", () => {
+  const popupWithForm = new PopupWithForm(
+    popupAvatar,
+    "popup-visible",
+    () => {}
+  );
+  popupWithForm.open();
+});
+
+export function waiting() {
+  allPopupButton.textContent = "Guardando...";
+};

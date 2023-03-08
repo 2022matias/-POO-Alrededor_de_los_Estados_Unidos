@@ -8,10 +8,10 @@ import {
   closeFormImage,
   profilePencil,
   profileAvatar,
-  popupButtonAvatar,
+  popupAvatar,
   popupCloseAvatar
 } from "../utils/constants.js";
-import { addCardForm } from "../utils/utils.js";
+import { addCardForm, waiting } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { Card } from "../components/Card.js";
@@ -23,11 +23,11 @@ const popupWithFormProfile = new PopupWithForm(
   popupProfile,
   "popup-visible",
   (inputValues) => {
+    setInterval(waiting, 3000);
     api.editProfile(inputValues[0].value, inputValues[1].value).then((res) => {
       userInfo.setUserInfo(
         inputValues[0].value,
         inputValues[1].value,
-        res.avatar
       );
       popupWithFormProfile.close();
     });
@@ -46,21 +46,22 @@ const popupWithForm = new PopupWithForm(
   })
 );
 
-// const popupFormAvatar = new PopupWithForm(
-//   profilePencil,
-//   "popup-visible",
-//   (inputValue) => {
-//     api.editProfile(inputValue.value).then((res) => {
-//       userInfo.setUserInfo(
-//         inputValue.value
-//       );
-//       popupFormAvatar.close();
-//     });
-//   },
-//   popupCloseAvatar.addEventListener("click", () => {
-//     popupFormAvatar.close();
-//   })
-// );
+const popupFormAvatar = new PopupWithForm(
+  popupAvatar,
+  "popup-visible",
+  (inputValues) => {
+    api.editProfile(inputValues.value).then((res) => {
+      userInfo.setUserInfo(
+        inputValues.value
+      );
+      popupFormAvatar.close();
+    });
+  },
+  popupCloseAvatar.addEventListener("click", () => {
+    popupFormAvatar.close();
+  })
+);
+
 
 const validar = new FormValidator({});
 validar.enableValidation();
@@ -76,6 +77,14 @@ api.getUserInfo().then((res) => {
   profileAvatar.addEventListener("mouseover", (evt) => {
     profilePencil.classList.remove("visibility");
     evt.target.style.opacity = "0.5";
+  })
+  profilePencil.addEventListener("mouseover", () => {
+    profilePencil.classList.remove("visibility");
+    profileAvatar.style.opacity = "0.5";
+  })
+  profileAvatar.addEventListener("mouseleave", (evt) => {
+    profilePencil.classList.add("visibility");
+    evt.target.style.opacity = "1";
   })
   api.getCards().then((resCards) => {
     const cardList = new Section(
