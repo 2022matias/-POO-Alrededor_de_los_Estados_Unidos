@@ -17,8 +17,9 @@ export function addCardForm(values, evt) {
   evt.preventDefault();
   const title = values[0].value;
   const image = values[1].value;
+  const picture = values[2].value;
   api.getUserInfo().then((res) => {
-    const data = [{ name: title, link: image }];
+    const data = [{ name: title, link: image, avatar: picture }];
     api.addCard(title, image).then((cardResponse) => {
       console.log(cardResponse);
       const cardList = new Section(

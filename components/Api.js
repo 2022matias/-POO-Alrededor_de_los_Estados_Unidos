@@ -8,7 +8,6 @@ export class Api {
 
   returnFetch(url, requestOptions) {
     return fetch(`${this._options.baseUrl}/${url}`, requestOptions)
-		//  setTimeout(waiting, 3000);
       .then((res) => res.json())
       .catch((error) => console.log("error", error));
   }
