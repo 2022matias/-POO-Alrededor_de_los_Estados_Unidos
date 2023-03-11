@@ -1,4 +1,5 @@
 import { Popup } from "./Popup.js";
+import { profilePencil, profileAvatar } from "../utils/constants.js";
 
 export class PopupWithForm extends Popup {
   constructor(popupSelector, classSelector, submitCallBack) {
@@ -22,6 +23,8 @@ export class PopupWithForm extends Popup {
 
   close() {
     super.close();
+    // profilePencil.classList.add("visibility");
+    // profileAvatar.style.opacity  = "1";
     this._popupSelector.querySelector(".popup__container").reset();
   }
 }

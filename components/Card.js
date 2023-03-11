@@ -70,11 +70,11 @@ export class Card {
   }
 
   _giveLike() {
-    const hasLike = this._likes.some((owner) => {
-      return owner._id === this._id; //id creador ===  id usuario(mia)   //
-    });
+    // const hasLike = this._likes.some((owner) => { //data.likes(owner)//
+    //   return owner._id === this._id; //id creador ===  id usuario(mia)   //
+    // });
 
-    if (!hasLike) {
+    if (this._likes.has(this._id)) {
       api.giveLike(this._data._id).then((res) => {  // thisdataid no es igual a this_id?//
         this._likes = res.likes;   //lo de adentro de likes = ...//
         this._likeButton.classList.add("element__heart-black");

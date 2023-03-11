@@ -78,17 +78,17 @@ export class Api {
     return this.returnFetch(`cards/likes/${cardId}`, requestOptions);
   }
 
-  updateAvatar(avatar) {
-    const requestOptions = {
-      method: "PATCH",
-      headers: this._header,
-      body: JSON.stringify({
-        avatar: avatar,
-      }),
-    };
+  // updateAvatar(avatar) {
+  //   const requestOptions = {
+  //     method: "PATCH",
+  //     headers: this._header,
+  //     body: JSON.stringify({
+  //       avatar: avatar,
+  //     }),
+  //   };
 
-    return this.returnFetch("users/me", requestOptions);
-  }
+  //   return this.returnFetch("users/me", requestOptions);
+  // }
 }
 
 export const api = new Api({
