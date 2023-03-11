@@ -18,7 +18,9 @@ export class PopupWithForm extends Popup {
       .querySelector(".popup__container")
       .addEventListener("submit", (evt) => {
         this._submitCallBack(this._getInputValues(), evt);
-        // allPopupButton.textContent = "Guardando...";
+        setTimeout(function loader() {
+          allPopupButton.textContent = "Guardando...";
+        }, 3000);
       });
   }
 

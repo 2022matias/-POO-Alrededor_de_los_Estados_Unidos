@@ -7,7 +7,8 @@ import {
   popupCloseIcon,
   closeFormImage,
   popupAvatar,
-  popupCloseAvatar
+  popupCloseAvatar,
+  profileAvatar
 } from "../utils/constants.js";
 import { addCardForm, waiting } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -48,12 +49,7 @@ const popupFormAvatar = new PopupWithForm(
   "popup-visible",
   (inputValues) => {
     api.updateAvatar(inputValues[0].value).then((res) => {
-      console.log(inputValues);
-      console.log(res);
-      userInfo.setUserInfo(
-        inputValues[0].value,
-      );
-      // profileAvatar.src = res.avatar;
+      profileAvatar.src = inputValues[0].value,
       popupFormAvatar.close();
     });
   },

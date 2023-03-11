@@ -19,10 +19,9 @@ export class UserInfo {
     };
   }
 
-  setUserInfo(newName, newJob, newAvatar) {
+  setUserInfo(newName, newJob) {
     profileName.textContent = newName;
     profileSkill.textContent = newJob;
-    profileAvatar.src = newAvatar;
   }
 }
 
