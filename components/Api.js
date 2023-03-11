@@ -35,7 +35,6 @@ export class Api {
       body: JSON.stringify({
         name: name,
         about: about,
-				avatar: avatar,
       }),
     };
 

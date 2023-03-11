@@ -6,8 +6,6 @@ import {
   popupProfile,
   popupCloseIcon,
   closeFormImage,
-  profilePencil,
-  profileAvatar,
   popupAvatar,
   popupCloseAvatar
 } from "../utils/constants.js";
@@ -48,11 +46,14 @@ const popupWithForm = new PopupWithForm(
 const popupFormAvatar = new PopupWithForm(
   popupAvatar,
   "popup-visible",
-  (inputValue) => {
-    api.updateAvatar(inputValue.value).then((res) => {
+  (inputValues) => {
+    api.updateAvatar(inputValues[0].value).then((res) => {
+      console.log(inputValues);
+      console.log(res);
       userInfo.setUserInfo(
-        inputValue.value
+        inputValues[0].value,
       );
+      // profileAvatar.src = res.avatar;
       popupFormAvatar.close();
     });
   },
