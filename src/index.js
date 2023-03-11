@@ -23,7 +23,6 @@ const popupWithFormProfile = new PopupWithForm(
   popupProfile,
   "popup-visible",
   (inputValues) => {
-    setInterval(waiting, 3000);
     api.editProfile(inputValues[0].value, inputValues[1].value).then((res) => {
       userInfo.setUserInfo(
         inputValues[0].value,
@@ -49,10 +48,10 @@ const popupWithForm = new PopupWithForm(
 const popupFormAvatar = new PopupWithForm(
   popupAvatar,
   "popup-visible",
-  (inputValues) => {
-    api.editProfile(inputValues.value).then((res) => {
+  (inputValue) => {
+    api.updateAvatar(inputValue.value).then((res) => {
       userInfo.setUserInfo(
-        inputValues.value
+        inputValue.value
       );
       popupFormAvatar.close();
     });
@@ -74,18 +73,6 @@ formularios.forEach((elemento) => {
 
 api.getUserInfo().then((res) => {
   userInfo.setUserInfo(res.name, res.about, res.avatar);
-  profileAvatar.addEventListener("mouseover", (evt) => {
-    profilePencil.classList.remove("visibility");
-    evt.target.style.opacity = "0.5";
-  })
-  profilePencil.addEventListener("mouseover", () => {
-    profilePencil.classList.remove("visibility");
-    profileAvatar.style.opacity = "0.5";
-  })
-  profileAvatar.addEventListener("mouseleave", (evt) => {
-    profilePencil.classList.add("visibility");
-    evt.target.style.opacity = "1";
-  })
   api.getCards().then((resCards) => {
     const cardList = new Section(
       {

@@ -10,7 +10,8 @@ import {
   popupFormImage,
   popupProfile,
   profilePencil,
-  allPopupButton
+  allPopupButton,
+  profileAvatar
 } from "./constants.js";
 
 export function addCardForm(values, evt) {
@@ -66,6 +67,15 @@ profilePencil.addEventListener("click", () => {
   popupWithForm.open();
 });
 
-export function waiting() {
-  allPopupButton.textContent = "Guardando...";
-};
+profileAvatar.addEventListener("mouseover", (evt) => {
+  profilePencil.classList.remove("visibility");
+  evt.target.style.opacity = "0.5";
+})
+profileAvatar.addEventListener("mouseleave", (evt) => {
+  profilePencil.classList.add("visibility");
+  evt.target.style.opacity = "1";
+})
+profilePencil.addEventListener("mouseover", () => {
+  profilePencil.classList.remove("visibility");
+  profileAvatar.style.opacity = "0.5";
+})

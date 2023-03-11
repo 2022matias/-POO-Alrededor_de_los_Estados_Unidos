@@ -1,5 +1,5 @@
 import { Popup } from "./Popup.js";
-import { profilePencil, profileAvatar } from "../utils/constants.js";
+import { profilePencil, profileAvatar, allPopupButton } from "../utils/constants.js";
 
 export class PopupWithForm extends Popup {
   constructor(popupSelector, classSelector, submitCallBack) {
@@ -18,13 +18,14 @@ export class PopupWithForm extends Popup {
       .querySelector(".popup__container")
       .addEventListener("submit", (evt) => {
         this._submitCallBack(this._getInputValues(), evt);
+        // allPopupButton.textContent = "Guardando...";
       });
   }
 
   close() {
     super.close();
-    // profilePencil.classList.add("visibility");
-    // profileAvatar.style.opacity  = "1";
+    profilePencil.classList.add("visibility");
+    profileAvatar.style.opacity  = "1";
     this._popupSelector.querySelector(".popup__container").reset();
   }
 }
