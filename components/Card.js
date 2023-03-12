@@ -69,11 +69,11 @@ export class Card {
     });
   }
 
-  _giveLike() {
-    const hasLike = this._data.likes.some((owner) => {
-      return owner._id === this._id;
-    });
-    if (hasLike) {
+    _giveLike() {
+      const hasLike = this._likes.some((owner) => {
+        return owner._id === this._id;
+      });
+    if (!hasLike) {
       api.giveLike(this._data._id).then((res) => {
         this._likes = res.likes;
         this._likeButton.classList.add("element__heart-black");

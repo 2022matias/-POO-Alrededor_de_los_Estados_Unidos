@@ -82,13 +82,14 @@ export class Api {
       method: "PATCH",
       headers: this._header,
       body: JSON.stringify({
-        avatar: avatar,
+        avatar: avatar
       }),
     };
-
-    return this.returnFetch("users/me", requestOptions);
+  
+    return this.returnFetch("users/me/avatar", requestOptions);
   }
 }
+
 
 export const api = new Api({
   authorization: "61c6f68c-f2f6-410f-a75d-8fc57629e184",

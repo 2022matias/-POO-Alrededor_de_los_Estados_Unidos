@@ -18,9 +18,7 @@ export class PopupWithForm extends Popup {
       .querySelector(".popup__container")
       .addEventListener("submit", (evt) => {
         this._submitCallBack(this._getInputValues(), evt);
-        setTimeout(function loader() {
-          allPopupButton.textContent = "Guardando...";
-        }, 3000);
+        this._loaderPopup(true);
       });
   }
 
@@ -29,5 +27,14 @@ export class PopupWithForm extends Popup {
     profilePencil.classList.add("visibility");
     profileAvatar.style.opacity  = "1";
     this._popupSelector.querySelector(".popup__container").reset();
+    this._loaderPopup(false);
+  }
+
+  _loaderPopup(loading) {
+    if (loading) {
+      allPopupButton.textContent = "Guardando...";
+    } else {
+      allPopupButton.textContent = "hola";
+    }
   }
 }
