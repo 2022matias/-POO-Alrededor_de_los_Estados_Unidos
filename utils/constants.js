@@ -61,4 +61,3 @@ export const popupAvatar = document.querySelector(".popup_avatar");
 export const popupButtonAvatar = document.querySelector(".popup__button-avatar");
 export const popupCloseAvatar = document.querySelector(".close-avatar");
 export const profilePencil = document.querySelector(".profile__pencil");
-export const allPopupButton = document.querySelectorAll(".popup__button");

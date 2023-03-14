@@ -26,6 +26,7 @@ const popupWithFormProfile = new PopupWithForm(
       userInfo.setUserInfo(
         inputValues[0].value,
         inputValues[1].value,
+        res.avatar
       );
       popupWithFormProfile.close();
     });

@@ -1,11 +1,12 @@
 import { Popup } from "./Popup.js";
-import { profilePencil, profileAvatar, allPopupButton } from "../utils/constants.js";
+import { profilePencil, profileAvatar } from "../utils/constants.js";
 
 export class PopupWithForm extends Popup {
   constructor(popupSelector, classSelector, submitCallBack) {
     super(popupSelector, classSelector);
     this._popupSelector = popupSelector;
     this._submitCallBack = submitCallBack;
+    this._previewSubmitText = this._popupSelector.querySelector('.popup__button').textContent;
     this.setEventListeners();
   }
   _getInputValues() {
@@ -17,8 +18,9 @@ export class PopupWithForm extends Popup {
     this._popupSelector
       .querySelector(".popup__container")
       .addEventListener("submit", (evt) => {
-        this._submitCallBack(this._getInputValues(), evt);
+        evt.preventDefault();
         this._loaderPopup(true);
+        this._submitCallBack(this._getInputValues(), evt);
       });
   }
 
@@ -32,9 +34,9 @@ export class PopupWithForm extends Popup {
 
   _loaderPopup(loading) {
     if (loading) {
-      allPopupButton.textContent = "Guardando...";
+      this._popupSelector.querySelector('.popup__button').textContent = 'Cargando....';
     } else {
-      allPopupButton.textContent = "hola";
+      this._popupSelector.querySelector('.popup__button').textContent = this._previewSubmitText;
     }
   }
 }

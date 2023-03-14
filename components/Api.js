@@ -9,7 +9,7 @@ export class Api {
   returnFetch(url, requestOptions) {
     return fetch(`${this._options.baseUrl}/${url}`, requestOptions)
       .then((res) => res.json())
-      .catch((error) => console.log("error", error));
+      .catch((res) => Promise.reject(`Error: ${res.status}`));
   }
 
   getUserInfo() {
