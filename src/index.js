@@ -8,7 +8,11 @@ import {
   closeFormImage,
   popupAvatar,
   popupCloseAvatar,
-  profileAvatar
+  profileAvatar,
+  inputName,
+  inputSkill,
+  profileName,
+  profileSkill
 } from "../utils/constants.js";
 import { addCardForm, waiting } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -28,6 +32,7 @@ const popupWithFormProfile = new PopupWithForm(
         inputValues[1].value,
         res.avatar
       );
+      
       popupWithFormProfile.close();
     });
   },

@@ -11,7 +11,11 @@ import {
   popupProfile,
   profilePencil,
   allPopupButton,
-  profileAvatar
+  profileAvatar,
+  inputName,
+  profileName,
+  inputSkill,
+  profileSkill
 } from "./constants.js";
 
 export function addCardForm(values, evt) {
@@ -51,8 +55,10 @@ openFormButton.addEventListener("click", () => {
   const popupWithForm = new PopupWithForm(
     popupProfile,
     "popup-visible",
-    () => {}
+    () => {},
   );
+  inputName.value = profileName.textContent;
+  inputSkill.value = profileSkill.textContent;
   popupWithForm.open();
 });
 
@@ -63,7 +69,7 @@ profilePencil.addEventListener("click", () => {
     () => {}
   );
   popupWithForm.open();
-});
+})
 
 profileAvatar.addEventListener("mouseover", (evt) => {
   profilePencil.classList.remove("visibility");
