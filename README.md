@@ -1,11 +1,13 @@
-# Proyecto 4: Alrededor de los Estados Unidos
+# Alrededor de los Estados Unidos (con Poo)
+## Red Social creada con la finalidad de aplicar conceptos ya vistos anteriormente pero utilizando Programación orientada a objetos:
+*Refactorización del anterior proyecto
+*Validación de formularios
+*Utilizacion de Webpack
+*Conectado a una Api de Tripleten para acceder a la base de datos de las tarjetas
 
-## Red Social creada con la finalidad de aplicar conceptos ya vistos anteriormente pero con la inclusion fundamental de los siguientes en Javascrip:
-*Manejo del Dom
-*Funciones 
-*Eventos
-
-### La idea es que a diferencia de las anteriores sea mas interactiva para el usuario.
+### Para ejecutar el codigo de manera local, inicializarlo con NPM RUN DEV
 
 ### Aquí dejo el link para poder visualizar el proyecto en vivo.
-(https://2022matias.github.io/web_project_4_esp/)
+(https://2022matias.github.io/-POO-Alrededor_de_los_Estados_Unidos/)
+
+![Poo, Alrededor de los Estados unidos](./src/images/gifPOO.gif)
